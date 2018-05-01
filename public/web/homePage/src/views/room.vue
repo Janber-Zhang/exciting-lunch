@@ -1,7 +1,18 @@
 <template>
   <div class="app_body">
     <div class="order-warp">
-      
+      <div class="all_items">
+        <p class="title">全部菜单</p>
+        <ul>
+          <li class="item" v-for="item in all_items_show" @click="chooseOne(item)" :key="item.id">{{item.name}}</li>
+        </ul>
+      </div>
+      <div class="has_selected">
+        <p class="title">已点菜单</p>
+        <ul>
+          <li v-for="item in selected_items" @click="deleteOne(item)" :key="item.id">{{item.name}}</li>
+        </ul>
+      </div>
     </div>
     <div class="chat-warp">
       <ul class="user_list">
@@ -44,7 +55,19 @@ export default {
       SOCKET: null,    //保存socket对象
       users: [],       //当前聊天室用户
       msgArr: [],      //消息列表
-      inputMsg: ''     //待发送消息
+      inputMsg: '',    //待发送消息
+      all_items: [
+        {name: '回锅肉', id: '0'},
+        {name: '盐煎肉', id: '1'},
+        {name: '小炒肉', id: '2'},
+        {name: '测试', id: '3'},
+        {name: '宫保鸡丁', id: '4'},
+        {name: '肥肠粉', id: '5'},
+        {name: '牛排', id: '6'},
+        {name: '测啊', id: '7'},
+        {name: '简单', id: '8'},
+      ],
+      selected_items: []
     }
   },
   methods:{
@@ -64,6 +87,10 @@ export default {
       this.SOCKET.on('sys', function (sysMsg, users, user, type) {
         vm.dealSysInfo(sysMsg, users, user, type);
       });
+      // 监听点餐系统消息
+      this.SOCKET.on('orders', function (orders) {
+        vm.dealOrderInfo(orders);
+      });
     },
     dealSysInfo: function(sysMsg, users, user, type) {
       this.users = users;
@@ -74,11 +101,29 @@ export default {
         $('#msgBox').scrollTop($('#msgBox')[0].scrollHeight);
       }, 10);
     },
+    dealOrderInfo: function(orders) {
+      this.all_items_show = this.all_items.filter(function(item){
+        var not_choose = true;
+        orders.forEach(function(order){
+          if (order.name == item.name) {
+            not_choose = false;
+          }
+        })
+        return not_choose
+      })
+      this.selected_items = orders;
+    },
     send: function(){
       if (this.inputMsg.length !== 0) {
         this.SOCKET.send(this.inputMsg);
         this.inputMsg = '';
       }
+    },
+    chooseOne: function(item) {
+      this.SOCKET.emit('order', JSON.stringify(item));
+    },
+    deleteOne: function(item) {
+      this.SOCKET.emit('deleteorder', JSON.stringify(item));
     }
   },
   components:{

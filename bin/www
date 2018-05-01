@@ -31,6 +31,9 @@ var socketIO = IO(server);
 // 房间用户名单
 var roomInfo = {};
 
+// 已点菜单
+var selected_item = [];
+
 socketIO.on('connection', function (socket) {
   var roomID = 'excited_room';   // 设置房间ID
   var user = '';
@@ -55,6 +58,8 @@ socketIO.on('connection', function (socket) {
       // 通知房间内人员
     }
     socketIO.to(roomID).emit('sys',user.nickname + '加入了房间', roomInfo[roomID], user, 'in');  
+    // 用户点餐
+    socketIO.to(roomID).emit('orders', selected_item)
 
   });
 
@@ -82,6 +87,31 @@ socketIO.on('connection', function (socket) {
     socketIO.to(roomID).emit('msg', user, msg);
   });
 
+  // 用户点餐
+  socket.on('order', function (item) {
+    var itemObj = JSON.parse(item);
+    var is_selected = false;
+    selected_item.forEach(function(_item){
+      if (itemObj.name == _item.name) {
+        is_selected = true
+      }
+    })
+    if (!is_selected) {
+      selected_item.push(itemObj);
+    }
+    // 用户点餐
+    socketIO.to(roomID).emit('orders', selected_item)
+  })
+
+  // 用户点餐取消
+  socket.on('deleteorder', function (item) {
+    var itemObj = JSON.parse(item);
+    selected_item = selected_item.filter(function(item){
+      return item.name !== itemObj.name
+    })
+    // 用户点餐
+    socketIO.to(roomID).emit('orders', selected_item)
+  })
 });
 
 /**
