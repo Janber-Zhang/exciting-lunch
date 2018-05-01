@@ -1,0 +1,130 @@
+.role-set {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(/images/bgc_1.jpg) center center no-repeat;
+  background-size: cover;
+  &-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #FFFFFF;
+    left: 0;
+    right: 0;
+    p {
+      font-size: 48px;
+    }
+    &> input {
+      background: none;
+      display: inline-block;
+      width: 550px;
+      margin: 0 auto;
+      padding-top: 15px;
+      border-bottom: 3px solid #fff;
+      line-height: normal;
+      font-weight: 500;
+      outline: 0;
+      overflow: hidden;
+      height: 80px;
+      font-size: 48px;
+      color: #FFFFFF;
+      text-align: center;
+    }
+  }
+}
+
+.app_body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  .order-warp {
+    position: absolute;
+    left: 0;
+    right: 420px;
+    top: 0;
+    bottom: 0;
+  }
+  .user_list {
+
+  }
+  .chat-warp {
+    width: 400px;
+    float: right;
+    height: 100%;
+    position: relative;
+    border-left: 1px solid #dedede;
+    .user_list {
+      height: 100px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid #dedede;
+      padding: 10px;
+      overflow: auto;
+      &>li {
+        display: inline-block;
+        float: left;
+        font-size: 14px;
+        color: #666666;
+        padding: 5px 10px;
+        cursor: pointer;
+        border: 1px solid #999999;
+        border-radius: 4px;
+        margin-right: 10px;
+        i {
+          margin-right: 4px;
+        }
+        &.is_mine {
+          background: #19BE72;
+          color: #ffffff;
+          border: 1px solid #19BE72;
+        }
+      }
+    }
+    .chat-msg-list {
+      position: absolute;
+      top: 121px;
+      bottom: 120px;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      overflow: auto;
+      &>li {
+        padding-bottom: 10px;
+        .u_name {
+          color: #19be6b;
+          font-size: 14px;
+        }
+        .u_msg {
+          margin-top: 5px;
+          font-size: 14px;
+          color: #999999;
+        }
+        &.is_mine {
+          .u_name {
+            color: #ed3f14;
+          }
+          .u_msg {
+            color: #666666;
+          }
+        }
+      }
+    }
+    &> textarea {
+      resize: none;
+      border-top: 1px solid #dedede;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+    }
+  }
+}

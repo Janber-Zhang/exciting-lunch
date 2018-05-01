@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>exciting-lunch</title>
+  <!-- import Vue.js -->
+  <script src="//vuejs.org/js/vue.min.js"></script>
+  <!-- import stylesheet -->
+  <link rel="stylesheet" href="//unpkg.com/iview/dist/styles/iview.css">
+  <!-- import iView -->
+  <script src="//unpkg.com/iview/dist/iview.min.js"></script>
+</head>
+<body>
+<div id="app">
+    
+</div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      visible: false
+    },
+    created() {
+      this.$Modal.confirm({
+        render: (h) => {
+          return h('Input', {
+            props: {
+              value: this.value,
+              autofocus: true,
+              placeholder: '请输入您的名字'
+            },
+            on: {
+              input: (val) => {
+                this.value = val;
+              }
+            }
+          })
+        }
+      })
+    },
+    methods: {
+      show: function () {
+          this.visible = true;
+      }
+    }
+  })
+</script>
+</body>
+</html>
