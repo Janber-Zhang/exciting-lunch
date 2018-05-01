@@ -1,6 +1,6 @@
 {
 	"desc": "test",
-	"port":"8888",
+	"port":"1234",
 	"session":{
 		"secret": "B*W&LX$S",
 		"key": "excited",
