@@ -67,6 +67,7 @@ export default {
         {name: '测啊', id: '7'},
         {name: '简单', id: '8'},
       ],
+      all_items_show: [],
       selected_items: []
     }
   },

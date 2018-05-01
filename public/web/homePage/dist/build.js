@@ -12298,6 +12298,7 @@
 	      msgArr: [], //消息列表
 	      inputMsg: '', //待发送消息
 	      all_items: [{ name: '回锅肉', id: '0' }, { name: '盐煎肉', id: '1' }, { name: '小炒肉', id: '2' }, { name: '测试', id: '3' }, { name: '宫保鸡丁', id: '4' }, { name: '肥肠粉', id: '5' }, { name: '牛排', id: '6' }, { name: '测啊', id: '7' }, { name: '简单', id: '8' }],
+	      all_items_show: [],
 	      selected_items: []
 	    };
 	  },
