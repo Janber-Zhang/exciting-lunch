@@ -2,10 +2,15 @@
   <div class="app_body">
     <div class="order-warp">
       <div class="all_items">
-        <p class="title">全部菜单</p>
+        <p class="title">
+          全部菜单
+          <input type="text" v-model="filter_str" placeholder="输入关键字搜索">
+        </p>
         <ul>
-          <li class="item" v-for="item in all_items" :key="item.id" v-bind:class="{selected: item.num}">
+          <li class="item" v-for="item in show_list" :key="item.id" v-bind:class="{selected: item.num}">
             {{item.name}}
+            <span style="color: #999">{{`（ ¥ ${item.price} ） `}}</span>
+
             <i @click="chooseOne(item)" v-bind:class="{show_icon: item.num}" class="handle add far fa-plus-circle"></i>
             <span class="handle num" >{{item.num}}</span>
             <i @click="deleteOne(item)" v-if="item.num" v-bind:class="{show_icon: item.num}" class="handle sub far fa-minus-circle"></i>
@@ -74,7 +79,8 @@ export default {
       msgArr: [],      //消息列表
       inputMsg: '',    //待发送消息
       all_items: [],
-      selected_items: []
+      selected_items: [],
+      filter_str: ''
     }
   },
   methods:{
@@ -147,7 +153,20 @@ export default {
 
   },
   computed:{
-    
+    show_list() {
+      if (this.filter_str) {
+        const new_list = this.all_items.filter((item)=>{
+          if (item.name.indexOf(this.filter_str)>-1) {
+            return true
+          } else {
+            return false
+          }
+        })
+        return new_list
+      } else {
+        return this.all_items
+      }
+    }
   },
   beforeDestroy() {
     this.SOCKET.emit('leave');
