@@ -11968,7 +11968,7 @@
 	// <script>
 	exports.default = {
 	  created: function created() {
-	    if (localStorage.user) {
+	    if (localStorage.user_obj) {
 	      this.have_name = true;
 	    }
 	  },
@@ -12110,7 +12110,7 @@
 	          }
 	        });
 	        if (current_user) {
-	          localStorage.user = (0, _stringify2.default)(current_user);
+	          localStorage.user_obj = (0, _stringify2.default)(current_user);
 	          this.$emit('on-ok');
 	        } else {
 	          if (this.show_tips) {
@@ -12271,7 +12271,7 @@
 
 	exports.default = {
 	  created: function created() {
-	    this.user = JSON.parse(localStorage.user);
+	    this.user = JSON.parse(localStorage.user_obj);
 	    this.all_items = _menu2.default;
 	  },
 	  mounted: function mounted() {

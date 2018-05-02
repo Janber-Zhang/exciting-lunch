@@ -54,7 +54,7 @@
 import AllMenu from './../js/menu.js'
 export default {
   created(){
-    this.user = JSON.parse(localStorage.user);
+    this.user = JSON.parse(localStorage.user_obj);
     this.all_items = AllMenu;
   },
   mounted(){

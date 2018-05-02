@@ -37,7 +37,7 @@ export default {
           }
         })
         if (current_user) {
-          localStorage.user = JSON.stringify(current_user);
+          localStorage.user_obj = JSON.stringify(current_user);
           this.$emit('on-ok');
         } else {
           if (this.show_tips) {

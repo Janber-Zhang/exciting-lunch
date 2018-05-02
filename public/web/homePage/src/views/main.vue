@@ -12,7 +12,7 @@ import enterName from './name.vue'
 import orderRoom from './room.vue'
 export default {
   created(){
-    if (localStorage.user) {
+    if (localStorage.user_obj) {
       this.have_name = true;
     }
   },
