@@ -4,19 +4,29 @@
       <div class="all_items">
         <p class="title">全部菜单</p>
         <ul>
-          <li class="item" v-for="item in all_items_show" @click="chooseOne(item)" :key="item.id">{{item.name}}</li>
+          <li class="item" v-for="item in all_items_show" :key="item.id">
+          {{item.name}}
+          <i @click="chooseOne(item)" class="far fa-plus-circle"></i>
+        </li>
         </ul>
       </div>
       <div class="has_selected">
         <p class="title">已点菜单</p>
         <ul>
-          <li v-for="item in selected_items" @click="deleteOne(item)" :key="item.id">{{item.name}}</li>
+          <li v-for="item in selected_items" :key="item.id">
+            {{item.name}} 
+            <i @click="deleteOne(item)" class="far fa-times-circle"></i>
+          </li>
         </ul>
       </div>
     </div>
     <div class="chat-warp">
       <ul class="user_list">
-        <li v-bind:class="{'is_mine': _user._id == user._id && _user.nickname == user.nickname}" v-for="_user in users" :key="_user._id"><i class="fas fa-user"></i>{{_user.nickname}}</li>
+        <li v-bind:class="{'is_mine': _user._id == user._id && _user.nickname == user.nickname}" v-for="_user in users" :key="_user._id">
+          <i class="fas fa-user"></i>
+          {{_user.nickname}}
+          <i style="margin-left: 10px;" @click="logout()" v-if="_user._id == user._id && _user.nickname == user.nickname" class="fas fa-sign-out out"></i>
+        </li>
       </ul>
       <ul class="chat-msg-list" id="msgBox">
         <li class="msg_info" v-bind:class="{'is_mine': msg.user._id == user._id && msg.user.nickname == user.nickname}" v-for="(msg, index) in msgArr" :key="index">
@@ -24,7 +34,7 @@
           <span class="u_msg">{{msg.msg}}</span>
         </li>
       </ul>
-      <textarea name="msg" v-model="inputMsg" id="inputMsg" @keyup.enter="send()"></textarea>
+      <textarea name="msg" v-model="inputMsg" placeholder="在这里输入点什么..." id="inputMsg" @keyup.enter="send()"></textarea>
     </div>
   </div>
 </template>
@@ -48,6 +58,7 @@ export default {
           break
       }
     });
+    $('#inputMsg').focus();
   },
   data(){
     return {
@@ -60,12 +71,14 @@ export default {
         {name: '回锅肉', id: '0'},
         {name: '盐煎肉', id: '1'},
         {name: '小炒肉', id: '2'},
-        {name: '测试', id: '3'},
+        {name: '黄瓜炒蛋', id: '3'},
         {name: '宫保鸡丁', id: '4'},
-        {name: '肥肠粉', id: '5'},
-        {name: '牛排', id: '6'},
-        {name: '测啊', id: '7'},
-        {name: '简单', id: '8'},
+        {name: '蚂蚁上树', id: '5'},
+        {name: '花生米', id: '6'},
+        {name: '炝炒时蔬', id: '7'},
+        {name: '毛血旺', id: '8'},
+        {name: '青椒土豆丝', id: '9'},
+        {name: '鱼香茄子', id: '10'},
       ],
       all_items_show: [],
       selected_items: []
@@ -125,6 +138,10 @@ export default {
     },
     deleteOne: function(item) {
       this.SOCKET.emit('deleteorder', JSON.stringify(item));
+    },
+    logout: function(){
+      localStorage.clear();
+      location.reload();
     }
   },
   components:{

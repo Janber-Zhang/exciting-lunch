@@ -57,6 +57,7 @@
         padding: 5px 10px;
         margin-right: 300px;
         border-bottom: 1px solid #dedede;
+        background-color: #f9f9f9;
       }
       &>ul {
         position: absolute;
@@ -66,13 +67,26 @@
         bottom: 0;
         overflow: auto;
         li {
-          padding: 5px 10px;
+          padding: 5px 15px;
           width: 200px;
           float: left;
           border: 1px solid #dedede;
           border-radius: 4px;
           margin: 10px;
           cursor: pointer;
+          i {
+            display: none;
+            float: right;
+            cursor: pointer;
+            font-size: 16px;
+            color: #797474;
+          }
+          &:hover {
+            background-color: #f6f6f6;
+            i {
+              display: inherit;
+            }
+          }
         }
       }
     }
@@ -103,10 +117,24 @@
         overflow: auto;
         padding: 10px;
         li {
-          padding: 5px 10px;
-          cursor: pointer;
+          padding: 5px 15px;
           border: 1px solid #dedede;
           margin-bottom: 10px;
+          border-radius: 4px;
+          text-align: left;
+          i {
+            display: none;
+            float: right;
+            cursor: pointer;
+            font-size: 16px;
+            color: #797474;
+          }
+          &:hover {
+            background-color: #f6f6f6;
+            i {
+              display: inherit;
+            }
+          }
         }
       }
     }
@@ -134,17 +162,20 @@
         font-size: 14px;
         color: #666666;
         padding: 5px 10px;
-        cursor: pointer;
         border: 1px solid #999999;
         border-radius: 4px;
         margin-right: 10px;
         i {
           margin-right: 4px;
         }
+        .out {
+          cursor: pointer;
+        }
         &.is_mine {
           background: #19BE72;
           color: #ffffff;
           border: 1px solid #19BE72;
+          padding-right: 5px;
         }
       }
     }

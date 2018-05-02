@@ -11327,7 +11327,7 @@
 
 
 	// module
-	exports.push([module.id, ".role-set {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background: url(/images/bgc_1.jpg) center center no-repeat;\n  background-size: cover;\n}\n.role-set-content {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  text-align: center;\n  color: #FFFFFF;\n  left: 0;\n  right: 0;\n}\n.role-set-content p {\n  font-size: 48px;\n}\n.role-set-content > input {\n  background: none;\n  display: inline-block;\n  width: 550px;\n  margin: 0 auto;\n  padding-top: 15px;\n  border-bottom: 3px solid #fff;\n  line-height: normal;\n  font-weight: 500;\n  outline: 0;\n  overflow: hidden;\n  height: 80px;\n  font-size: 48px;\n  color: #FFFFFF;\n  text-align: center;\n}\n.app_body {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n.app_body .order-warp {\n  position: absolute;\n  left: 0;\n  right: 400px;\n  top: 0;\n  bottom: 0;\n}\n.app_body .order-warp .all_items > .title {\n  font-size: 16px;\n  color: #666666;\n  text-align: center;\n  line-height: 30px;\n  padding: 5px 10px;\n  margin-right: 300px;\n  border-bottom: 1px solid #dedede;\n}\n.app_body .order-warp .all_items > ul {\n  position: absolute;\n  top: 41px;\n  left: 0;\n  right: 300px;\n  bottom: 0;\n  overflow: auto;\n}\n.app_body .order-warp .all_items > ul li {\n  padding: 5px 10px;\n  width: 200px;\n  float: left;\n  border: 1px solid #dedede;\n  border-radius: 4px;\n  margin: 10px;\n  cursor: pointer;\n}\n.app_body .order-warp .has_selected {\n  width: 300px;\n  position: absolute;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  text-align: center;\n  border-left: 1px solid #dedede;\n}\n.app_body .order-warp .has_selected .title {\n  height: 30px;\n  line-height: 30px;\n  font-size: 16px;\n  background-color: #f9f9f9;\n  color: #666;\n  border-bottom: 1px solid #dedede;\n  padding: 5px 10px;\n}\n.app_body .order-warp .has_selected > ul {\n  position: absolute;\n  top: 41px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: auto;\n  padding: 10px;\n}\n.app_body .order-warp .has_selected > ul li {\n  padding: 5px 10px;\n  cursor: pointer;\n  border: 1px solid #dedede;\n  margin-bottom: 10px;\n}\n.app_body .chat-warp {\n  width: 400px;\n  float: right;\n  height: 100%;\n  position: relative;\n  border-left: 1px solid #dedede;\n}\n.app_body .chat-warp .user_list {\n  height: 100px;\n  position: absolute;\n  left: 0;\n  right: 0;\n  border-bottom: 1px solid #dedede;\n  padding: 10px;\n  overflow: auto;\n}\n.app_body .chat-warp .user_list > li {\n  display: inline-block;\n  float: left;\n  font-size: 14px;\n  color: #666666;\n  padding: 5px 10px;\n  cursor: pointer;\n  border: 1px solid #999999;\n  border-radius: 4px;\n  margin-right: 10px;\n}\n.app_body .chat-warp .user_list > li i {\n  margin-right: 4px;\n}\n.app_body .chat-warp .user_list > li.is_mine {\n  background: #19BE72;\n  color: #ffffff;\n  border: 1px solid #19BE72;\n}\n.app_body .chat-warp .chat-msg-list {\n  position: absolute;\n  top: 121px;\n  bottom: 120px;\n  left: 0;\n  right: 0;\n  padding: 10px;\n  overflow: auto;\n}\n.app_body .chat-warp .chat-msg-list > li {\n  padding-bottom: 10px;\n}\n.app_body .chat-warp .chat-msg-list > li .u_name {\n  color: #19be6b;\n  font-size: 14px;\n}\n.app_body .chat-warp .chat-msg-list > li .u_msg {\n  margin-top: 5px;\n  font-size: 14px;\n  color: #999999;\n}\n.app_body .chat-warp .chat-msg-list > li.is_mine .u_name {\n  color: #ed3f14;\n}\n.app_body .chat-warp .chat-msg-list > li.is_mine .u_msg {\n  color: #666666;\n}\n.app_body .chat-warp > textarea {\n  resize: none;\n  border-top: 1px solid #dedede;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 120px;\n  padding: 10px;\n}\n", ""]);
+	exports.push([module.id, ".role-set {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background: url(/images/bgc_1.jpg) center center no-repeat;\n  background-size: cover;\n}\n.role-set-content {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  text-align: center;\n  color: #FFFFFF;\n  left: 0;\n  right: 0;\n}\n.role-set-content p {\n  font-size: 48px;\n}\n.role-set-content > input {\n  background: none;\n  display: inline-block;\n  width: 550px;\n  margin: 0 auto;\n  padding-top: 15px;\n  border-bottom: 3px solid #fff;\n  line-height: normal;\n  font-weight: 500;\n  outline: 0;\n  overflow: hidden;\n  height: 80px;\n  font-size: 48px;\n  color: #FFFFFF;\n  text-align: center;\n}\n.app_body {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n.app_body .order-warp {\n  position: absolute;\n  left: 0;\n  right: 400px;\n  top: 0;\n  bottom: 0;\n}\n.app_body .order-warp .all_items > .title {\n  font-size: 16px;\n  color: #666666;\n  text-align: center;\n  line-height: 30px;\n  padding: 5px 10px;\n  margin-right: 300px;\n  border-bottom: 1px solid #dedede;\n  background-color: #f9f9f9;\n}\n.app_body .order-warp .all_items > ul {\n  position: absolute;\n  top: 41px;\n  left: 0;\n  right: 300px;\n  bottom: 0;\n  overflow: auto;\n}\n.app_body .order-warp .all_items > ul li {\n  padding: 5px 15px;\n  width: 200px;\n  float: left;\n  border: 1px solid #dedede;\n  border-radius: 4px;\n  margin: 10px;\n  cursor: pointer;\n}\n.app_body .order-warp .all_items > ul li i {\n  display: none;\n  float: right;\n  cursor: pointer;\n  font-size: 16px;\n  color: #797474;\n}\n.app_body .order-warp .all_items > ul li:hover {\n  background-color: #f6f6f6;\n}\n.app_body .order-warp .all_items > ul li:hover i {\n  display: inherit;\n}\n.app_body .order-warp .has_selected {\n  width: 300px;\n  position: absolute;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  text-align: center;\n  border-left: 1px solid #dedede;\n}\n.app_body .order-warp .has_selected .title {\n  height: 30px;\n  line-height: 30px;\n  font-size: 16px;\n  background-color: #f9f9f9;\n  color: #666;\n  border-bottom: 1px solid #dedede;\n  padding: 5px 10px;\n}\n.app_body .order-warp .has_selected > ul {\n  position: absolute;\n  top: 41px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: auto;\n  padding: 10px;\n}\n.app_body .order-warp .has_selected > ul li {\n  padding: 5px 15px;\n  border: 1px solid #dedede;\n  margin-bottom: 10px;\n  border-radius: 4px;\n  text-align: left;\n}\n.app_body .order-warp .has_selected > ul li i {\n  display: none;\n  float: right;\n  cursor: pointer;\n  font-size: 16px;\n  color: #797474;\n}\n.app_body .order-warp .has_selected > ul li:hover {\n  background-color: #f6f6f6;\n}\n.app_body .order-warp .has_selected > ul li:hover i {\n  display: inherit;\n}\n.app_body .chat-warp {\n  width: 400px;\n  float: right;\n  height: 100%;\n  position: relative;\n  border-left: 1px solid #dedede;\n}\n.app_body .chat-warp .user_list {\n  height: 100px;\n  position: absolute;\n  left: 0;\n  right: 0;\n  border-bottom: 1px solid #dedede;\n  padding: 10px;\n  overflow: auto;\n}\n.app_body .chat-warp .user_list > li {\n  display: inline-block;\n  float: left;\n  font-size: 14px;\n  color: #666666;\n  padding: 5px 10px;\n  border: 1px solid #999999;\n  border-radius: 4px;\n  margin-right: 10px;\n}\n.app_body .chat-warp .user_list > li i {\n  margin-right: 4px;\n}\n.app_body .chat-warp .user_list > li .out {\n  cursor: pointer;\n}\n.app_body .chat-warp .user_list > li.is_mine {\n  background: #19BE72;\n  color: #ffffff;\n  border: 1px solid #19BE72;\n  padding-right: 5px;\n}\n.app_body .chat-warp .chat-msg-list {\n  position: absolute;\n  top: 121px;\n  bottom: 120px;\n  left: 0;\n  right: 0;\n  padding: 10px;\n  overflow: auto;\n}\n.app_body .chat-warp .chat-msg-list > li {\n  padding-bottom: 10px;\n}\n.app_body .chat-warp .chat-msg-list > li .u_name {\n  color: #19be6b;\n  font-size: 14px;\n}\n.app_body .chat-warp .chat-msg-list > li .u_msg {\n  margin-top: 5px;\n  font-size: 14px;\n  color: #999999;\n}\n.app_body .chat-warp .chat-msg-list > li.is_mine .u_name {\n  color: #ed3f14;\n}\n.app_body .chat-warp .chat-msg-list > li.is_mine .u_msg {\n  color: #666666;\n}\n.app_body .chat-warp > textarea {\n  resize: none;\n  border-top: 1px solid #dedede;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 120px;\n  padding: 10px;\n}\n", ""]);
 
 	// exports
 
@@ -12245,19 +12245,29 @@
 	//       <div class="all_items">
 	//         <p class="title">全部菜单</p>
 	//         <ul>
-	//           <li class="item" v-for="item in all_items_show" @click="chooseOne(item)" :key="item.id">{{item.name}}</li>
+	//           <li class="item" v-for="item in all_items_show" :key="item.id">
+	//           {{item.name}}
+	//           <i @click="chooseOne(item)" class="far fa-plus-circle"></i>
+	//         </li>
 	//         </ul>
 	//       </div>
 	//       <div class="has_selected">
 	//         <p class="title">已点菜单</p>
 	//         <ul>
-	//           <li v-for="item in selected_items" @click="deleteOne(item)" :key="item.id">{{item.name}}</li>
+	//           <li v-for="item in selected_items" :key="item.id">
+	//             {{item.name}} 
+	//             <i @click="deleteOne(item)" class="far fa-times-circle"></i>
+	//           </li>
 	//         </ul>
 	//       </div>
 	//     </div>
 	//     <div class="chat-warp">
 	//       <ul class="user_list">
-	//         <li v-bind:class="{'is_mine': _user._id == user._id && _user.nickname == user.nickname}" v-for="_user in users" :key="_user._id"><i class="fas fa-user"></i>{{_user.nickname}}</li>
+	//         <li v-bind:class="{'is_mine': _user._id == user._id && _user.nickname == user.nickname}" v-for="_user in users" :key="_user._id">
+	//           <i class="fas fa-user"></i>
+	//           {{_user.nickname}}
+	//           <i style="margin-left: 10px;" @click="logout()" v-if="_user._id == user._id && _user.nickname == user.nickname" class="fas fa-sign-out out"></i>
+	//         </li>
 	//       </ul>
 	//       <ul class="chat-msg-list" id="msgBox">
 	//         <li class="msg_info" v-bind:class="{'is_mine': msg.user._id == user._id && msg.user.nickname == user.nickname}" v-for="(msg, index) in msgArr" :key="index">
@@ -12265,7 +12275,7 @@
 	//           <span class="u_msg">{{msg.msg}}</span>
 	//         </li>
 	//       </ul>
-	//       <textarea name="msg" v-model="inputMsg" id="inputMsg" @keyup.enter="send()"></textarea>
+	//       <textarea name="msg" v-model="inputMsg" placeholder="在这里输入点什么..." id="inputMsg" @keyup.enter="send()"></textarea>
 	//     </div>
 	//   </div>
 	// </template>
@@ -12289,6 +12299,7 @@
 	          break;
 	      }
 	    });
+	    $('#inputMsg').focus();
 	  },
 	  data: function data() {
 	    return {
@@ -12297,7 +12308,7 @@
 	      users: [], //当前聊天室用户
 	      msgArr: [], //消息列表
 	      inputMsg: '', //待发送消息
-	      all_items: [{ name: '回锅肉', id: '0' }, { name: '盐煎肉', id: '1' }, { name: '小炒肉', id: '2' }, { name: '测试', id: '3' }, { name: '宫保鸡丁', id: '4' }, { name: '肥肠粉', id: '5' }, { name: '牛排', id: '6' }, { name: '测啊', id: '7' }, { name: '简单', id: '8' }],
+	      all_items: [{ name: '回锅肉', id: '0' }, { name: '盐煎肉', id: '1' }, { name: '小炒肉', id: '2' }, { name: '黄瓜炒蛋', id: '3' }, { name: '宫保鸡丁', id: '4' }, { name: '蚂蚁上树', id: '5' }, { name: '花生米', id: '6' }, { name: '炝炒时蔬', id: '7' }, { name: '毛血旺', id: '8' }, { name: '青椒土豆丝', id: '9' }, { name: '鱼香茄子', id: '10' }],
 	      all_items_show: [],
 	      selected_items: []
 	    };
@@ -12357,6 +12368,10 @@
 	    },
 	    deleteOne: function deleteOne(item) {
 	      this.SOCKET.emit('deleteorder', (0, _stringify2.default)(item));
+	    },
+	    logout: function logout() {
+	      localStorage.clear();
+	      location.reload();
 	    }
 	  },
 	  components: {},
@@ -12371,7 +12386,7 @@
 /* 25 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"app_body\" _v-515a7a76=\"\">\n  <div class=\"order-warp\" _v-515a7a76=\"\">\n    <div class=\"all_items\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">全部菜单</p>\n      <ul _v-515a7a76=\"\">\n        <li class=\"item\" v-for=\"item in all_items_show\" @click=\"chooseOne(item)\" :key=\"item.id\" _v-515a7a76=\"\">{{item.name}}</li>\n      </ul>\n    </div>\n    <div class=\"has_selected\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">已点菜单</p>\n      <ul _v-515a7a76=\"\">\n        <li v-for=\"item in selected_items\" @click=\"deleteOne(item)\" :key=\"item.id\" _v-515a7a76=\"\">{{item.name}}</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\" _v-515a7a76=\"\">\n    <ul class=\"user_list\" _v-515a7a76=\"\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id &amp;&amp; _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\" _v-515a7a76=\"\"><i class=\"fas fa-user\" _v-515a7a76=\"\"></i>{{_user.nickname}}</li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\" _v-515a7a76=\"\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id &amp;&amp; msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\" _v-515a7a76=\"\">\n        <span class=\"u_name\" _v-515a7a76=\"\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\" _v-515a7a76=\"\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" id=\"inputMsg\" @keyup.enter=\"send()\" _v-515a7a76=\"\"></textarea>\n  </div>\n</div>\n";
+	module.exports = "\n<div class=\"app_body\" _v-515a7a76=\"\">\n  <div class=\"order-warp\" _v-515a7a76=\"\">\n    <div class=\"all_items\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">全部菜单</p>\n      <ul _v-515a7a76=\"\">\n        <li class=\"item\" v-for=\"item in all_items_show\" :key=\"item.id\" _v-515a7a76=\"\">\n        {{item.name}}\n        <i @click=\"chooseOne(item)\" class=\"far fa-plus-circle\" _v-515a7a76=\"\"></i>\n      </li>\n      </ul>\n    </div>\n    <div class=\"has_selected\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">已点菜单</p>\n      <ul _v-515a7a76=\"\">\n        <li v-for=\"item in selected_items\" :key=\"item.id\" _v-515a7a76=\"\">\n          {{item.name}} \n          <i @click=\"deleteOne(item)\" class=\"far fa-times-circle\" _v-515a7a76=\"\"></i>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\" _v-515a7a76=\"\">\n    <ul class=\"user_list\" _v-515a7a76=\"\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id &amp;&amp; _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\" _v-515a7a76=\"\">\n        <i class=\"fas fa-user\" _v-515a7a76=\"\"></i>\n        {{_user.nickname}}\n        <i style=\"margin-left: 10px;\" @click=\"logout()\" v-if=\"_user._id == user._id &amp;&amp; _user.nickname == user.nickname\" class=\"fas fa-sign-out out\" _v-515a7a76=\"\"></i>\n      </li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\" _v-515a7a76=\"\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id &amp;&amp; msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\" _v-515a7a76=\"\">\n        <span class=\"u_name\" _v-515a7a76=\"\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\" _v-515a7a76=\"\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" placeholder=\"在这里输入点什么...\" id=\"inputMsg\" @keyup.enter=\"send()\" _v-515a7a76=\"\"></textarea>\n  </div>\n</div>\n";
 
 /***/ },
 /* 26 */
