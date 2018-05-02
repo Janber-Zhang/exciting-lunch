@@ -88,15 +88,30 @@ socketIO.on('connection', function (socket) {
   });
 
   // 用户点餐
-  socket.on('order', function (item) {
+  socket.on('order', function (item, user) {
     var itemObj = JSON.parse(item);
+    var userObj = JSON.parse(user);
     var is_selected = false;
+    var user_count = 0;
+    selected_item.forEach(function(item){
+      var i = item.count[userObj._id] || 0;
+      user_count += i;
+    });
     selected_item.forEach(function(_item){
       if (itemObj.name == _item.name) {
-        is_selected = true
+        is_selected = true;
+        _item.count[userObj._id] = _item.count[userObj._id] || 0;
+        if (user_count < 5) {
+          _item.count[userObj._id]++
+          _item.count.total++
+        }
       }
-    })
-    if (!is_selected) {
+    });
+    if (!is_selected && user_count < 5) {
+      itemObj.count = {
+        total: 1
+      };
+      itemObj.count[userObj._id] = 1;
       selected_item.push(itemObj);
     }
     // 用户点餐
@@ -104,9 +119,23 @@ socketIO.on('connection', function (socket) {
   })
 
   // 用户点餐取消
-  socket.on('deleteorder', function (item) {
+  socket.on('deleteorder', function (item, user) {
     var itemObj = JSON.parse(item);
+    var userObj = JSON.parse(user);
     selected_item = selected_item.filter(function(item){
+      if (item.name === itemObj.name) {
+        if (item.count.total === 1 && item.count[userObj._id] == 1) {
+          return false
+        } else if(item.count.total > 0 && item.count[userObj._id] > 0){
+          item.count.total--;
+          item.count[userObj._id]--;
+          return true
+        } else {
+          return true
+        }
+      } else {
+        return true
+      }
       return item.name !== itemObj.name
     })
     // 用户点餐

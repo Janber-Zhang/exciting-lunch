@@ -4,18 +4,22 @@
       <div class="all_items">
         <p class="title">全部菜单</p>
         <ul>
-          <li class="item" v-for="item in all_items_show" :key="item.id">
-          {{item.name}}
-          <i @click="chooseOne(item)" class="far fa-plus-circle"></i>
-        </li>
+          <li class="item" v-for="item in all_items" :key="item.id" v-bind:class="{selected: item.num}">
+            {{item.name}}
+            <i @click="chooseOne(item)" v-bind:class="{show_icon: item.num}" class="handle add far fa-plus-circle"></i>
+            <span class="handle num" >{{item.num}}</span>
+            <i @click="deleteOne(item)" v-if="item.num" v-bind:class="{show_icon: item.num}" class="handle sub far fa-minus-circle"></i>
+          </li>
         </ul>
       </div>
       <div class="has_selected">
         <p class="title">已点菜单</p>
         <ul>
           <li v-for="item in selected_items" :key="item.id">
-            {{item.name}} 
-            <i @click="deleteOne(item)" class="far fa-times-circle"></i>
+            {{item.name}}
+            <!-- <i @click="deleteOne(item)" v-if="item.count[user._id]" class="far fa-minus-circle"></i> -->
+            <!-- <span class="mine">{{item.count[user._id]}}</span> -->
+            <span class="total">{{item.count.total}}</span>
           </li>
         </ul>
       </div>
@@ -42,9 +46,11 @@
   
 </style>
 <script>
+import AllMenu from './../js/menu.js'
 export default {
   created(){
     this.user = JSON.parse(localStorage.user);
+    this.all_items = AllMenu;
   },
   mounted(){
     this.socketInit();
@@ -67,20 +73,7 @@ export default {
       users: [],       //当前聊天室用户
       msgArr: [],      //消息列表
       inputMsg: '',    //待发送消息
-      all_items: [
-        {name: '回锅肉', id: '0'},
-        {name: '盐煎肉', id: '1'},
-        {name: '小炒肉', id: '2'},
-        {name: '黄瓜炒蛋', id: '3'},
-        {name: '宫保鸡丁', id: '4'},
-        {name: '蚂蚁上树', id: '5'},
-        {name: '花生米', id: '6'},
-        {name: '炝炒时蔬', id: '7'},
-        {name: '毛血旺', id: '8'},
-        {name: '青椒土豆丝', id: '9'},
-        {name: '鱼香茄子', id: '10'},
-      ],
-      all_items_show: [],
+      all_items: [],
       selected_items: []
     }
   },
@@ -116,14 +109,20 @@ export default {
       }, 10);
     },
     dealOrderInfo: function(orders) {
-      this.all_items_show = this.all_items.filter(function(item){
-        var not_choose = true;
-        orders.forEach(function(order){
-          if (order.name == item.name) {
-            not_choose = false;
+      this.all_items.forEach((_item)=>{
+        let not_found = true;
+        orders.forEach((order)=>{
+          if (order.id == _item.id) {
+            not_found = false;
+            _item.num = order.count[this.user._id] || '';
           }
         })
-        return not_choose
+        if (not_found) {
+          _item.num = '';
+        }
+      });
+      orders = orders.sort(function(pre, next){
+        return pre.count.total < next.count.total
       })
       this.selected_items = orders;
     },
@@ -134,10 +133,10 @@ export default {
       }
     },
     chooseOne: function(item) {
-      this.SOCKET.emit('order', JSON.stringify(item));
+      this.SOCKET.emit('order', JSON.stringify(item), JSON.stringify(this.user));
     },
     deleteOne: function(item) {
-      this.SOCKET.emit('deleteorder', JSON.stringify(item));
+      this.SOCKET.emit('deleteorder', JSON.stringify(item), JSON.stringify(this.user));
     },
     logout: function(){
       localStorage.clear();

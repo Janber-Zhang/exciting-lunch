@@ -74,18 +74,40 @@
           border-radius: 4px;
           margin: 10px;
           cursor: pointer;
+          position: relative;
           i {
             display: none;
-            float: right;
+            // float: right;
             cursor: pointer;
             font-size: 16px;
             color: #797474;
+          }
+          .show_icon {
+            display: inherit;
+          }
+          .handle {
+            position: absolute;
+            top: 5px;
+          }
+          .add {
+            right: 10px;
+          }
+          .sub {
+            right: 40px;
+          }
+          .num {
+            right: 30px;
+            top: 6px;
           }
           &:hover {
             background-color: #f6f6f6;
             i {
               display: inherit;
             }
+          }
+          &.selected {
+            border-color: #d5e8fc;
+            background-color: #eaf4fe;
           }
         }
       }
@@ -122,6 +144,26 @@
           margin-bottom: 10px;
           border-radius: 4px;
           text-align: left;
+          position: relative;
+          .total {
+            position: absolute;
+            right: 15px;
+            top: 3px;
+            height: 20px;
+            min-width: 20px;
+            background: #5cb85c;
+            color: #FFF;
+            border-radius: 50%;
+            line-height: 20px;
+            text-align: center;
+            font-size: 12px;
+          }
+          .mine {
+            position: absolute;
+            left: 180px;
+            color: #19BE72;
+            top: 6px;
+          }
           i {
             display: none;
             float: right;
