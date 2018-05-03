@@ -11650,7 +11650,7 @@
 	__vue_script__ = __webpack_require__(12)
 	if (Object.keys(__vue_script__).some(function (key) { return key !== "default" && key !== "__esModule" })) {
 	  console.warn("[vue-loader] src/views/main.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(26)
+	__vue_template__ = __webpack_require__(28)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -11950,7 +11950,7 @@
 
 	var _name2 = _interopRequireDefault(_name);
 
-	var _room = __webpack_require__(21);
+	var _room = __webpack_require__(22);
 
 	var _room2 = _interopRequireDefault(_room);
 
@@ -12000,7 +12000,7 @@
 	__vue_script__ = __webpack_require__(16)
 	if (Object.keys(__vue_script__).some(function (key) { return key !== "default" && key !== "__esModule" })) {
 	  console.warn("[vue-loader] src/views/name.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(20)
+	__vue_template__ = __webpack_require__(21)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -12078,7 +12078,7 @@
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
-	var _user = __webpack_require__(27);
+	var _user = __webpack_require__(20);
 
 	var _user2 = _interopRequireDefault(_user);
 
@@ -12173,19 +12173,32 @@
 /* 20 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"role-set\" _v-6d37c7b4=\"\">\n  <div class=\"role-set-content\" _v-6d37c7b4=\"\">\n    <p class=\"title\" _v-6d37c7b4=\"\">Hello, what's your name?</p>\n    <input type=\"text\" id=\"name_input\" v-model=\"value\" @keyup.enter=\"submit\" _v-6d37c7b4=\"\">\n    <p style=\"margin-top: 10px;font-size: 16px;\" id=\"login_tips\" v-show=\"show_tips\" class=\"animated bounceIn\" _v-6d37c7b4=\"\">请输入您的中文全名！！！</p>\n  </div>\n</div>\n";
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var users = [{ "nickname": "黄晓军", "sex": 1, "_id": "ppc_00000" }, { "nickname": "汤福军", "sex": 1, "_id": "ppc_00001" }, { "nickname": "向加义", "sex": 1, "_id": "ppc_00002" }, { "nickname": "苟格", "sex": 1, "_id": "ppc_00003" }, { "nickname": "曹庭斌", "sex": 1, "_id": "ppc_00004" }, { "nickname": "兰琪", "sex": 1, "_id": "ppc_00005" }, { "nickname": "何贵均", "sex": 1, "_id": "ppc_00006" }, { "nickname": "汤威", "sex": 1, "_id": "ppc_00007" }, { "nickname": "倪康", "sex": 1, "_id": "ppc_00008" }, { "nickname": "杨静", "sex": 2, "_id": "ppc_00009" }, { "nickname": "陈胜", "sex": 1, "_id": "ppc_000010" }, { "nickname": "马鑫钰", "sex": 2, "_id": "ppc_000011" }, { "nickname": "何明", "sex": 1, "_id": "ppc_000012" }, { "nickname": "张建标", "sex": 1, "_id": "ppc_000013" }, { "nickname": "徐青", "sex": 1, "_id": "ppc_000014" }, { "nickname": "黄霄", "sex": 1, "_id": "ppc_000015" }, { "nickname": "王园园", "sex": 2, "_id": "ppc_000016" }, { "nickname": "胡澜于", "sex": 1, "_id": "ppc_000017" }, { "nickname": "余敏", "sex": 1, "_id": "ppc_000018" }, { "nickname": "肖韦", "sex": 1, "_id": "ppc_000019" }];
+
+	exports.default = users;
 
 /***/ },
 /* 21 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"role-set\" _v-6d37c7b4=\"\">\n  <div class=\"role-set-content\" _v-6d37c7b4=\"\">\n    <p class=\"title\" _v-6d37c7b4=\"\">Hello, what's your name?</p>\n    <input type=\"text\" id=\"name_input\" v-model=\"value\" @keyup.enter=\"submit\" _v-6d37c7b4=\"\">\n    <p style=\"margin-top: 10px;font-size: 16px;\" id=\"login_tips\" v-show=\"show_tips\" class=\"animated bounceIn\" _v-6d37c7b4=\"\">请输入您的中文全名！！！</p>\n  </div>\n</div>\n";
+
+/***/ },
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
 	var __vue_styles__ = {}
-	__webpack_require__(22)
-	__vue_script__ = __webpack_require__(24)
+	__webpack_require__(23)
+	__vue_script__ = __webpack_require__(25)
 	if (Object.keys(__vue_script__).some(function (key) { return key !== "default" && key !== "__esModule" })) {
 	  console.warn("[vue-loader] src/views/room.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(25)
+	__vue_template__ = __webpack_require__(27)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -12210,13 +12223,13 @@
 	})()}
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(23);
+	var content = __webpack_require__(24);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(11)(content, {});
@@ -12236,7 +12249,7 @@
 	}
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(6)();
@@ -12250,7 +12263,7 @@
 
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12263,7 +12276,7 @@
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
-	var _menu = __webpack_require__(28);
+	var _menu = __webpack_require__(26);
 
 	var _menu2 = _interopRequireDefault(_menu);
 
@@ -12448,32 +12461,7 @@
 	// <script>
 
 /***/ },
-/* 25 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<div class=\"app_body\" _v-515a7a76=\"\">\n  <div class=\"order-warp\" _v-515a7a76=\"\">\n    <div class=\"all_items\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">\n        全部菜单\n        <input type=\"text\" v-model=\"filter_str\" placeholder=\"输入关键字搜索\" _v-515a7a76=\"\">\n      </p>\n      <ul _v-515a7a76=\"\">\n        <li class=\"item\" v-for=\"item in show_list\" :key=\"item.id\" v-bind:class=\"{selected: item.num}\" _v-515a7a76=\"\">\n          {{item.name}}\n          <span style=\"color: #999\" _v-515a7a76=\"\">{{`（ ¥ ${item.price} ） `}}</span>\n\n          <i @click=\"chooseOne(item)\" v-bind:class=\"{show_icon: item.num}\" class=\"handle add far fa-plus-circle\" _v-515a7a76=\"\"></i>\n          <span class=\"handle num\" _v-515a7a76=\"\">{{item.num}}</span>\n          <i @click=\"deleteOne(item)\" v-if=\"item.num\" v-bind:class=\"{show_icon: item.num}\" class=\"handle sub far fa-minus-circle\" _v-515a7a76=\"\"></i>\n        </li>\n      </ul>\n    </div>\n    <div class=\"has_selected\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">已点菜单</p>\n      <ul _v-515a7a76=\"\">\n        <li v-for=\"item in selected_items\" :key=\"item.id\" _v-515a7a76=\"\">\n          {{item.name}}\n          <!-- <i @click=\"deleteOne(item)\" v-if=\"item.count[user._id]\" class=\"far fa-minus-circle\"></i> -->\n          <!-- <span class=\"mine\">{{item.count[user._id]}}</span> -->\n          <span class=\"total\" _v-515a7a76=\"\">{{item.count.total}}</span>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\" _v-515a7a76=\"\">\n    <ul class=\"user_list\" _v-515a7a76=\"\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id &amp;&amp; _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\" _v-515a7a76=\"\">\n        <i class=\"fas fa-user\" _v-515a7a76=\"\"></i>\n        {{_user.nickname}}\n        <i style=\"margin-left: 10px;\" @click=\"logout()\" v-if=\"_user._id == user._id &amp;&amp; _user.nickname == user.nickname\" class=\"fas fa-sign-out out\" _v-515a7a76=\"\"></i>\n      </li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\" _v-515a7a76=\"\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id &amp;&amp; msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\" _v-515a7a76=\"\">\n        <span class=\"u_name\" _v-515a7a76=\"\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\" _v-515a7a76=\"\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" placeholder=\"在这里输入点什么...\" id=\"inputMsg\" @keyup.enter=\"send()\" _v-515a7a76=\"\"></textarea>\n  </div>\n</div>\n";
-
-/***/ },
 /* 26 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<div class=\"main\" _v-5b2e6054=\"\">\n  <order-room v-if=\"have_name\" _v-5b2e6054=\"\"></order-room>\n  <enter-name v-else=\"\" @on-ok=\"have_name = true\" _v-5b2e6054=\"\"></enter-name>\n</div>\n";
-
-/***/ },
-/* 27 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var users = [{ "nickname": "黄晓军", "sex": 1, "_id": "ppc_00000" }, { "nickname": "汤福军", "sex": 1, "_id": "ppc_00001" }, { "nickname": "向加义", "sex": 1, "_id": "ppc_00002" }, { "nickname": "苟格", "sex": 1, "_id": "ppc_00003" }, { "nickname": "曹庭斌", "sex": 1, "_id": "ppc_00004" }, { "nickname": "兰琪", "sex": 1, "_id": "ppc_00005" }, { "nickname": "何贵均", "sex": 1, "_id": "ppc_00006" }, { "nickname": "汤威", "sex": 1, "_id": "ppc_00007" }, { "nickname": "倪康", "sex": 1, "_id": "ppc_00008" }, { "nickname": "杨静", "sex": 2, "_id": "ppc_00009" }, { "nickname": "陈胜", "sex": 1, "_id": "ppc_000010" }, { "nickname": "马鑫钰", "sex": 2, "_id": "ppc_000011" }, { "nickname": "何明", "sex": 1, "_id": "ppc_000012" }, { "nickname": "张建标", "sex": 1, "_id": "ppc_000013" }, { "nickname": "徐青", "sex": 1, "_id": "ppc_000014" }, { "nickname": "黄霄", "sex": 1, "_id": "ppc_000015" }, { "nickname": "王园园", "sex": 2, "_id": "ppc_000016" }, { "nickname": "胡澜于", "sex": 1, "_id": "ppc_000017" }, { "nickname": "余敏", "sex": 1, "_id": "ppc_000018" }, { "nickname": "肖韦", "sex": 1, "_id": "ppc_000019" }];
-
-	exports.default = users;
-
-/***/ },
-/* 28 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -12484,6 +12472,18 @@
 	var menu = [{ "name": "肥肠豆腐鱼", "price": "40", "id": "00000" }, { "name": "豆花鱼", "price": "35", "id": "00001" }, { "name": "瓦块鱼", "price": "35", "id": "00002" }, { "name": "干烧全鱼", "price": "35", "id": "00003" }, { "name": "糖醋脆皮鱼", "price": "35", "id": "00004" }, { "name": "火锅鱼", "price": "35", "id": "00005" }, { "name": "酸菜鱼", "price": "35", "id": "00006" }, { "name": "菜根香鲫鱼", "price": "50", "id": "00007" }, { "name": "水煮牛肉", "price": "38", "id": "00008" }, { "name": "毛血旺", "price": "35", "id": "00009" }, { "name": "鱼香茄饼", "price": "25", "id": "000010" }, { "name": "火锅兔", "price": "35", "id": "000011" }, { "name": "干煸兔", "price": "25", "id": "000012" }, { "name": "红焖兔", "price": "25", "id": "000013" }, { "name": "红烧兔", "price": "25", "id": "000014" }, { "name": "重庆烧鸡公", "price": "35", "id": "000015" }, { "name": "干煸鸡", "price": "25", "id": "000016" }, { "name": "红烧鸡", "price": "25", "id": "000017" }, { "name": "姜汁熱味鸡", "price": "25", "id": "000018" }, { "name": "小煎仔鸡", "price": "25", "id": "000019" }, { "name": "红油鸡块", "price": "40", "id": "000020" }, { "name": "剁水鱼", "price": "35", "id": "000021" }, { "name": "蕃茄鱼", "price": "35", "id": "000022" }, { "name": "香辣鱼", "price": "35", "id": "000023" }, { "name": "鲜溜鱼片", "price": "35", "id": "000024" }, { "name": "豆瓣全鱼", "price": "35", "id": "000025" }, { "name": "豆豉鲫鱼", "price": "50", "id": "000026" }, { "name": "豆瓣鲫鱼", "price": "50", "id": "000027" }, { "name": "干煸肥肠", "price": "40", "id": "000028" }, { "name": "酸菜肥肠", "price": "40", "id": "000029" }, { "name": "水煮肥肠", "price": "40", "id": "000030" }, { "name": "泡椒仔兔免", "price": "25", "id": "000031" }, { "name": "山椒跳水鱼", "price": "35", "id": "000032" }, { "name": "黄焖免", "price": "25", "id": "000033" }, { "name": "爆兔花", "price": "25", "id": "000034" }, { "name": "辣子鸡", "price": "25", "id": "000035" }, { "name": "鱼香八块鸡", "price": "25", "id": "000036" }, { "name": "醋溜鸡", "price": "25", "id": "000037" }, { "name": "麻辣鸡块", "price": "40", "id": "000038" }, { "name": "干锅排骨", "price": "50", "id": "000039" }, { "name": "干锅鸡", "price": "40", "id": "000040" }, { "name": "干锅兔", "price": "40", "id": "000041" }, { "name": "麻辣鸡丁", "price": "40", "id": "000042" }, { "name": "仔姜肉片", "price": "14", "id": "000043" }, { "name": "笋子肉片", "price": "12", "id": "000044" }, { "name": "香菇肉片", "price": "14", "id": "000045" }, { "name": "莲白肉片", "price": "12", "id": "000046" }, { "name": "糖醋里脊", "price": "18", "id": "000047" }, { "name": "京酱肉丝", "price": "18", "id": "000048" }, { "name": "蒜苔肉丝", "price": "12", "id": "000049" }, { "name": "鱼香肉丝", "price": "12", "id": "000050" }, { "name": "仔姜肉丝", "price": "14", "id": "000051" }, { "name": "芹菜肉丝", "price": "12", "id": "000052" }, { "name": "青椒肉丝", "price": "12", "id": "000053" }, { "name": "宫爆肉丁", "price": "14", "id": "000054" }, { "name": "家常豆腐", "price": "12", "id": "000055" }, { "name": "烂肉芹菜", "price": "12", "id": "000056" }, { "name": "烂肉豆腐", "price": "12", "id": "000057" }, { "name": "韭黄肉丝", "price": "14", "id": "000058" }, { "name": "肝腰合炒", "price": "14", "id": "000059" }, { "name": "烂肉茄子", "price": "12", "id": "000060" }, { "name": "鸡米芽菜", "price": "14", "id": "000061" }, { "name": "豉香大排", "price": "40", "id": "000062" }, { "name": "冒鸭子", "price": "50", "id": "000063" }, { "name": "豆花嫩牛肉", "price": "38", "id": "000064" }, { "name": "山椒爆牛肉", "price": "38", "id": "000065" }, { "name": "剁水鱼", "price": "35", "id": "000066" }, { "name": "苦瓜肉片", "price": "12", "id": "000067" }, { "name": "丝瓜肉片", "price": "12", "id": "000068" }, { "name": "平菇肉片", "price": "12", "id": "000069" }, { "name": "蕃茄肉片", "price": "12", "id": "000070" }, { "name": "火爆腰花", "price": "18", "id": "000071" }, { "name": "甜椒肉丝", "price": "12", "id": "000072" }, { "name": "土豆肉丝", "price": "12", "id": "000073" }, { "name": "苦瓜肉丝", "price": "12", "id": "000074" }, { "name": "韭菜花肉丝", "price": "14", "id": "000075" }, { "name": "豆腐干肉丝", "price": "12", "id": "000076" }, { "name": "熊掌豆腐", "price": "12", "id": "000077" }, { "name": "烂肉豇豆", "price": "12", "id": "000078" }, { "name": "烂肉青豆", "price": "12", "id": "000079" }, { "name": "烂肉粉条", "price": "12", "id": "000080" }, { "name": "泡椒肝片", "price": "12", "id": "000081" }, { "name": "蜀山豆腐", "price": "12", "id": "000082" }, { "name": "水煮肉片", "price": "18", "id": "000083" }, { "name": "回锅肉", "price": "14", "id": "000084" }, { "name": "木耳肉片", "price": "12", "id": "000085" }, { "name": "盐煎肉", "price": "14", "id": "000086" }, { "name": "青笋肉片", "price": "12", "id": "000087" }, { "name": "黄瓜肉片", "price": "12", "id": "000088" }, { "name": "宫保鸡丁", "price": "14", "id": "000089" }, { "name": "土豆回锅", "price": "18", "id": "000090" }, { "name": "青椒炒蛋", "price": "10", "id": "000091" }, { "name": "苦瓜炒蛋", "price": "10", "id": "000092" }, { "name": "蕃茄炒蛋", "price": "10", "id": "000093" }, { "name": "韭黄炒蛋", "price": "10", "id": "000094" }, { "name": "芹菜牛肉丝", "price": "38", "id": "000095" }, { "name": "孜然香肉", "price": "18", "id": "000096" }, { "name": "红油猪头肉", "price": "15", "id": "000097" }, { "name": "蒜泥白肉", "price": "14", "id": "000098" }, { "name": "鱼香茄子", "price": "10", "id": "000099" }, { "name": "虎皮青椒", "price": "10", "id": "0000100" }, { "name": "干煸茄子", "price": "10", "id": "0000101" }, { "name": "干煸苦瓜", "price": "10", "id": "0000102" }, { "name": "孜然土豆", "price": "10", "id": "0000103" }, { "name": "干煸四季豆", "price": "10", "id": "0000104" }, { "name": "蒜泥飘儿白", "price": "8", "id": "0000105" }, { "name": "醋溜白菜", "price": "8", "id": "0000106" }, { "name": "素炒藕片", "price": "8", "id": "0000107" }, { "name": "炝绿豆芽", "price": "8", "id": "0000108" }, { "name": "山椒土豆丝", "price": "8", "id": "0000109" }, { "name": "素炒黄瓜", "price": "8", "id": "0000110" }, { "name": "炝瓜条", "price": "8", "id": "0000111" }, { "name": "炝凤尾", "price": "8", "id": "0000112" }, { "name": "青椒士豆丝", "price": "8", "id": "0000113" }, { "name": "白油花菜", "price": "8", "id": "0000114" }, { "name": "麻婆豆腐", "price": "8", "id": "0000115" }, { "name": "炝莲白", "price": "8", "id": "0000116" }, { "name": "韭黄豆腐干", "price": "8", "id": "0000117" }, { "name": "白油冬瓜", "price": "8", "id": "0000118" }, { "name": "糖醋莲白", "price": "8", "id": "0000119" }, { "name": "凉拌豇豆", "price": "8", "id": "0000120" }, { "name": "红油三丝", "price": "8", "id": "0000121" }, { "name": "剁椒茄子", "price": "8", "id": "0000122" }, { "name": "剁椒凉粉", "price": "8", "id": "0000123" }, { "name": "蒜泥黄瓜", "price": "8", "id": "0000124" }, { "name": "蜜汁蕃茄", "price": "8", "id": "0000125" }, { "name": "蒜泥生菜", "price": "8", "id": "0000126" }, { "name": "青椒皮蛋", "price": "10", "id": "0000127" }, { "name": "煎蛋汤", "price": "10", "id": "0000128" }, { "name": "香菇肉片汤", "price": "10", "id": "0000129" }, { "name": "黄瓜皮蛋汤", "price": "10", "id": "0000130" }, { "name": "连锅汤", "price": "10", "id": "0000131" }, { "name": "蛋花汤", "price": "10", "id": "0000132" }, { "name": "豆腐汤", "price": "10", "id": "0000133" }, { "name": "酸菜粉丝汤", "price": "10", "id": "0000134" }, { "name": "三色肉丝汤", "price": "10", "id": "0000135" }, { "name": "素汤", "price": "4", "id": "0000136" }];
 
 	exports.default = menu;
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"app_body\" _v-515a7a76=\"\">\n  <div class=\"order-warp\" _v-515a7a76=\"\">\n    <div class=\"all_items\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">\n        全部菜单\n        <input type=\"text\" v-model=\"filter_str\" placeholder=\"输入关键字搜索\" _v-515a7a76=\"\">\n      </p>\n      <ul _v-515a7a76=\"\">\n        <li class=\"item\" v-for=\"item in show_list\" :key=\"item.id\" v-bind:class=\"{selected: item.num}\" _v-515a7a76=\"\">\n          {{item.name}}\n          <span style=\"color: #999\" _v-515a7a76=\"\">{{`（ ¥ ${item.price} ） `}}</span>\n\n          <i @click=\"chooseOne(item)\" v-bind:class=\"{show_icon: item.num}\" class=\"handle add far fa-plus-circle\" _v-515a7a76=\"\"></i>\n          <span class=\"handle num\" _v-515a7a76=\"\">{{item.num}}</span>\n          <i @click=\"deleteOne(item)\" v-if=\"item.num\" v-bind:class=\"{show_icon: item.num}\" class=\"handle sub far fa-minus-circle\" _v-515a7a76=\"\"></i>\n        </li>\n      </ul>\n    </div>\n    <div class=\"has_selected\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">已点菜单</p>\n      <ul _v-515a7a76=\"\">\n        <li v-for=\"item in selected_items\" :key=\"item.id\" _v-515a7a76=\"\">\n          {{item.name}}\n          <!-- <i @click=\"deleteOne(item)\" v-if=\"item.count[user._id]\" class=\"far fa-minus-circle\"></i> -->\n          <!-- <span class=\"mine\">{{item.count[user._id]}}</span> -->\n          <span class=\"total\" _v-515a7a76=\"\">{{item.count.total}}</span>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\" _v-515a7a76=\"\">\n    <ul class=\"user_list\" _v-515a7a76=\"\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id &amp;&amp; _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\" _v-515a7a76=\"\">\n        <i class=\"fas fa-user\" _v-515a7a76=\"\"></i>\n        {{_user.nickname}}\n        <i style=\"margin-left: 10px;\" @click=\"logout()\" v-if=\"_user._id == user._id &amp;&amp; _user.nickname == user.nickname\" class=\"fas fa-sign-out out\" _v-515a7a76=\"\"></i>\n      </li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\" _v-515a7a76=\"\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id &amp;&amp; msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\" _v-515a7a76=\"\">\n        <span class=\"u_name\" _v-515a7a76=\"\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\" _v-515a7a76=\"\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" placeholder=\"在这里输入点什么...\" id=\"inputMsg\" @keyup.enter=\"send()\" _v-515a7a76=\"\"></textarea>\n  </div>\n</div>\n";
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"main\" _v-5b2e6054=\"\">\n  <order-room v-if=\"have_name\" _v-5b2e6054=\"\"></order-room>\n  <enter-name v-else=\"\" @on-ok=\"have_name = true\" _v-5b2e6054=\"\"></enter-name>\n</div>\n";
 
 /***/ }
 /******/ ]);
