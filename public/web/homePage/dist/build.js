@@ -12399,6 +12399,17 @@
 	      } else {
 	        return this.all_items;
 	      }
+	    },
+	    count: function count() {
+	      var _this3 = this;
+
+	      var count = 0;
+	      this.selected_items.forEach(function (item) {
+	        if (item.count && item.count[_this3.user._id]) {
+	          count += item.count[_this3.user._id] || 0;
+	        }
+	      });
+	      return count;
 	    }
 	  },
 	  beforeDestroy: function beforeDestroy() {
@@ -12411,7 +12422,7 @@
 	//     <div class="order-warp">
 	//       <div class="all_items">
 	//         <p class="title">
-	//           全部菜单
+	//           全部菜单<span style="font-size:16px; margin-left: 10px; color: #5cb85c">{{`( ${count} / 5 )`}}</span>
 	//           <input type="text" v-model="filter_str" placeholder="输入关键字搜索">
 	//         </p>
 	//         <ul>
@@ -12477,7 +12488,7 @@
 /* 27 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"app_body\" _v-515a7a76=\"\">\n  <div class=\"order-warp\" _v-515a7a76=\"\">\n    <div class=\"all_items\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">\n        全部菜单\n        <input type=\"text\" v-model=\"filter_str\" placeholder=\"输入关键字搜索\" _v-515a7a76=\"\">\n      </p>\n      <ul _v-515a7a76=\"\">\n        <li class=\"item\" v-for=\"item in show_list\" :key=\"item.id\" v-bind:class=\"{selected: item.num}\" _v-515a7a76=\"\">\n          {{item.name}}\n          <span style=\"color: #999\" _v-515a7a76=\"\">{{`（ ¥ ${item.price} ） `}}</span>\n\n          <i @click=\"chooseOne(item)\" v-bind:class=\"{show_icon: item.num}\" class=\"handle add far fa-plus-circle\" _v-515a7a76=\"\"></i>\n          <span class=\"handle num\" _v-515a7a76=\"\">{{item.num}}</span>\n          <i @click=\"deleteOne(item)\" v-if=\"item.num\" v-bind:class=\"{show_icon: item.num}\" class=\"handle sub far fa-minus-circle\" _v-515a7a76=\"\"></i>\n        </li>\n      </ul>\n    </div>\n    <div class=\"has_selected\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">已点菜单</p>\n      <ul _v-515a7a76=\"\">\n        <li v-for=\"item in selected_items\" :key=\"item.id\" _v-515a7a76=\"\">\n          {{item.name}}\n          <!-- <i @click=\"deleteOne(item)\" v-if=\"item.count[user._id]\" class=\"far fa-minus-circle\"></i> -->\n          <!-- <span class=\"mine\">{{item.count[user._id]}}</span> -->\n          <span class=\"total\" _v-515a7a76=\"\">{{item.count.total}}</span>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\" _v-515a7a76=\"\">\n    <ul class=\"user_list\" _v-515a7a76=\"\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id &amp;&amp; _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\" _v-515a7a76=\"\">\n        <i class=\"fas fa-user\" _v-515a7a76=\"\"></i>\n        {{_user.nickname}}\n        <i style=\"margin-left: 10px;\" @click=\"logout()\" v-if=\"_user._id == user._id &amp;&amp; _user.nickname == user.nickname\" class=\"fas fa-sign-out out\" _v-515a7a76=\"\"></i>\n      </li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\" _v-515a7a76=\"\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id &amp;&amp; msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\" _v-515a7a76=\"\">\n        <span class=\"u_name\" _v-515a7a76=\"\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\" _v-515a7a76=\"\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" placeholder=\"在这里输入点什么...\" id=\"inputMsg\" @keyup.enter=\"send()\" _v-515a7a76=\"\"></textarea>\n  </div>\n</div>\n";
+	module.exports = "\n<div class=\"app_body\" _v-515a7a76=\"\">\n  <div class=\"order-warp\" _v-515a7a76=\"\">\n    <div class=\"all_items\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">\n        全部菜单<span style=\"font-size:16px; margin-left: 10px; color: #5cb85c\" _v-515a7a76=\"\">{{`( ${count} / 5 )`}}</span>\n        <input type=\"text\" v-model=\"filter_str\" placeholder=\"输入关键字搜索\" _v-515a7a76=\"\">\n      </p>\n      <ul _v-515a7a76=\"\">\n        <li class=\"item\" v-for=\"item in show_list\" :key=\"item.id\" v-bind:class=\"{selected: item.num}\" _v-515a7a76=\"\">\n          {{item.name}}\n          <span style=\"color: #999\" _v-515a7a76=\"\">{{`（ ¥ ${item.price} ） `}}</span>\n\n          <i @click=\"chooseOne(item)\" v-bind:class=\"{show_icon: item.num}\" class=\"handle add far fa-plus-circle\" _v-515a7a76=\"\"></i>\n          <span class=\"handle num\" _v-515a7a76=\"\">{{item.num}}</span>\n          <i @click=\"deleteOne(item)\" v-if=\"item.num\" v-bind:class=\"{show_icon: item.num}\" class=\"handle sub far fa-minus-circle\" _v-515a7a76=\"\"></i>\n        </li>\n      </ul>\n    </div>\n    <div class=\"has_selected\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">已点菜单</p>\n      <ul _v-515a7a76=\"\">\n        <li v-for=\"item in selected_items\" :key=\"item.id\" _v-515a7a76=\"\">\n          {{item.name}}\n          <!-- <i @click=\"deleteOne(item)\" v-if=\"item.count[user._id]\" class=\"far fa-minus-circle\"></i> -->\n          <!-- <span class=\"mine\">{{item.count[user._id]}}</span> -->\n          <span class=\"total\" _v-515a7a76=\"\">{{item.count.total}}</span>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\" _v-515a7a76=\"\">\n    <ul class=\"user_list\" _v-515a7a76=\"\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id &amp;&amp; _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\" _v-515a7a76=\"\">\n        <i class=\"fas fa-user\" _v-515a7a76=\"\"></i>\n        {{_user.nickname}}\n        <i style=\"margin-left: 10px;\" @click=\"logout()\" v-if=\"_user._id == user._id &amp;&amp; _user.nickname == user.nickname\" class=\"fas fa-sign-out out\" _v-515a7a76=\"\"></i>\n      </li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\" _v-515a7a76=\"\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id &amp;&amp; msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\" _v-515a7a76=\"\">\n        <span class=\"u_name\" _v-515a7a76=\"\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\" _v-515a7a76=\"\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" placeholder=\"在这里输入点什么...\" id=\"inputMsg\" @keyup.enter=\"send()\" _v-515a7a76=\"\"></textarea>\n  </div>\n</div>\n";
 
 /***/ },
 /* 28 */

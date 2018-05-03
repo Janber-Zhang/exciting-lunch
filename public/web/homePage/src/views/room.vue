@@ -3,7 +3,7 @@
     <div class="order-warp">
       <div class="all_items">
         <p class="title">
-          全部菜单
+          全部菜单<span style="font-size:16px; margin-left: 10px; color: #5cb85c">{{`( ${count} / 5 )`}}</span>
           <input type="text" v-model="filter_str" placeholder="输入关键字搜索">
         </p>
         <ul>
@@ -166,6 +166,15 @@ export default {
       } else {
         return this.all_items
       }
+    },
+    count() {
+      var count = 0;
+      this.selected_items.forEach((item)=>{
+        if (item.count && item.count[this.user._id]) {
+          count += item.count[this.user._id] || 0;
+        }
+      });
+      return count
     }
   },
   beforeDestroy() {
