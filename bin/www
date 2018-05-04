@@ -147,7 +147,7 @@ socketIO.on('connection', function (socket) {
     socketIO.to(roomID).emit('orders', selected_item)
   })
   function scheduleCron(){
-    schedule.scheduleJob('0 0 0 * * *', function(){
+    schedule.scheduleJob('0 0 12 * * *', function(){
       selected_item = [];
       socketIO.to(roomID).emit('orders', selected_item);
       console.log('凌晨定时清除');
