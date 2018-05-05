@@ -38,6 +38,8 @@ var roomInfo = {};
 
 // 已点菜单
 var selected_item = [];
+// 就餐人员
+var users = [];
 
 socketIO.on('connection', function (socket) {
   var roomID = 'excited_room';   // 设置房间ID
@@ -146,10 +148,26 @@ socketIO.on('connection', function (socket) {
     // 用户点餐
     socketIO.to(roomID).emit('orders', selected_item)
   })
+
+  // 用户报名吃饭
+  socket.on('enlist', function(user, type) {
+    var userObj = JSON.parse(user);
+    if (type == 'in' && users.indexOf(userObj._id) === -1) {
+      users.push(userObj._id)
+    }
+    if (type == 'out' && users.indexOf(userObj._id) !== -1) {
+      users = users.filter(function(id){
+        return id !== userObj._id
+      })
+    }
+    socketIO.to(roomID).emit('users', users)
+  })
   function scheduleCron(){
     schedule.scheduleJob('0 0 12 * * *', function(){
       selected_item = [];
+      users = [];
       socketIO.to(roomID).emit('orders', selected_item);
+      socketIO.to(roomID).emit('users', users)
       console.log('凌晨定时清除');
     }); 
   }

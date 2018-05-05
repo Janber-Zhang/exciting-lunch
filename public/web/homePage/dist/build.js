@@ -11327,7 +11327,7 @@
 
 
 	// module
-	exports.push([module.id, ".role-set {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background: url(/images/bgc_1.jpg) center center no-repeat;\n  background-size: cover;\n}\n.role-set-content {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  text-align: center;\n  color: #FFFFFF;\n  left: 0;\n  right: 0;\n}\n.role-set-content p {\n  font-size: 48px;\n}\n.role-set-content > input {\n  background: none;\n  display: inline-block;\n  width: 550px;\n  margin: 0 auto;\n  padding-top: 15px;\n  border-bottom: 3px solid #fff;\n  line-height: normal;\n  font-weight: 500;\n  outline: 0;\n  overflow: hidden;\n  height: 80px;\n  font-size: 48px;\n  color: #FFFFFF;\n  text-align: center;\n}\n.app_body {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n.app_body .order-warp {\n  position: absolute;\n  left: 0;\n  right: 400px;\n  top: 0;\n  bottom: 0;\n}\n.app_body .order-warp .all_items > .title {\n  font-size: 16px;\n  color: #666666;\n  text-align: center;\n  line-height: 30px;\n  padding: 5px 10px;\n  margin-right: 220px;\n  border-bottom: 1px solid #dedede;\n  background-color: #f9f9f9;\n  position: relative;\n}\n.app_body .order-warp .all_items > .title > input {\n  height: 30px;\n  border: 1px solid #dedede;\n  border-radius: 4px;\n  position: absolute;\n  right: 10px;\n  top: 5px;\n  color: #666;\n  text-indent: 7px;\n  width: 150px;\n}\n.app_body .order-warp .all_items > ul {\n  position: absolute;\n  top: 41px;\n  left: 0;\n  right: 220px;\n  bottom: 0;\n  overflow: auto;\n}\n.app_body .order-warp .all_items > ul li {\n  padding: 5px 15px;\n  width: 168px;\n  float: left;\n  border: 1px solid #e9e9e9;\n  border-radius: 4px;\n  margin: 10px;\n  cursor: pointer;\n  position: relative;\n}\n.app_body .order-warp .all_items > ul li i {\n  display: none;\n  cursor: pointer;\n  font-size: 16px;\n  color: #797474;\n}\n.app_body .order-warp .all_items > ul li .show_icon {\n  display: inherit;\n}\n.app_body .order-warp .all_items > ul li .handle {\n  position: absolute;\n  top: 5px;\n}\n.app_body .order-warp .all_items > ul li .add {\n  right: 10px;\n}\n.app_body .order-warp .all_items > ul li .sub {\n  right: 40px;\n}\n.app_body .order-warp .all_items > ul li .num {\n  right: 30px;\n  top: 6px;\n}\n.app_body .order-warp .all_items > ul li:hover {\n  background-color: #f6f6f6;\n}\n.app_body .order-warp .all_items > ul li:hover i {\n  display: inherit;\n}\n.app_body .order-warp .all_items > ul li.selected {\n  border-color: #d5e8fc;\n  background-color: #eaf4fe;\n}\n.app_body .order-warp .has_selected {\n  width: 220px;\n  position: absolute;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  text-align: center;\n  border-left: 1px solid #dedede;\n}\n.app_body .order-warp .has_selected .title {\n  height: 30px;\n  line-height: 30px;\n  font-size: 16px;\n  background-color: #f9f9f9;\n  color: #666;\n  border-bottom: 1px solid #dedede;\n  padding: 5px 10px;\n}\n.app_body .order-warp .has_selected > ul {\n  position: absolute;\n  top: 41px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: auto;\n  padding: 10px;\n}\n.app_body .order-warp .has_selected > ul li {\n  padding: 5px 15px;\n  border: 1px solid #d1f2e1;\n  margin-bottom: 10px;\n  border-radius: 4px;\n  text-align: left;\n  position: relative;\n  background-color: #e8f9f0;\n}\n.app_body .order-warp .has_selected > ul li .total {\n  position: absolute;\n  right: 15px;\n  top: 3px;\n  height: 20px;\n  min-width: 20px;\n  background: #5cb85c;\n  color: #FFF;\n  border-radius: 50%;\n  line-height: 20px;\n  text-align: center;\n  font-size: 12px;\n}\n.app_body .order-warp .has_selected > ul li .mine {\n  position: absolute;\n  left: 180px;\n  color: #19BE72;\n  top: 6px;\n}\n.app_body .order-warp .has_selected > ul li i {\n  display: none;\n  float: right;\n  cursor: pointer;\n  font-size: 16px;\n  color: #797474;\n}\n.app_body .order-warp .has_selected > ul li:hover i {\n  display: inherit;\n}\n.app_body .chat-warp {\n  width: 400px;\n  float: right;\n  height: 100%;\n  position: relative;\n  border-left: 1px solid #dedede;\n}\n.app_body .chat-warp .user_list {\n  height: 100px;\n  position: absolute;\n  left: 0;\n  right: 0;\n  border-bottom: 1px solid #dedede;\n  padding: 10px;\n  overflow: auto;\n}\n.app_body .chat-warp .user_list > li {\n  display: inline-block;\n  float: left;\n  font-size: 14px;\n  color: #666666;\n  padding: 5px 10px;\n  border: 1px solid #999999;\n  border-radius: 4px;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n.app_body .chat-warp .user_list > li i {\n  margin-right: 4px;\n}\n.app_body .chat-warp .user_list > li .out {\n  cursor: pointer;\n}\n.app_body .chat-warp .user_list > li.is_mine {\n  background: #19BE72;\n  color: #ffffff;\n  border: 1px solid #19BE72;\n  padding-right: 5px;\n}\n.app_body .chat-warp .chat-msg-list {\n  position: absolute;\n  top: 121px;\n  bottom: 120px;\n  left: 0;\n  right: 0;\n  padding: 10px;\n  overflow: auto;\n}\n.app_body .chat-warp .chat-msg-list > li {\n  padding-bottom: 10px;\n}\n.app_body .chat-warp .chat-msg-list > li .u_name {\n  color: #19be6b;\n  font-size: 14px;\n}\n.app_body .chat-warp .chat-msg-list > li .u_msg {\n  margin-top: 5px;\n  font-size: 14px;\n  color: #999999;\n}\n.app_body .chat-warp .chat-msg-list > li.is_mine .u_name {\n  color: #ed3f14;\n}\n.app_body .chat-warp .chat-msg-list > li.is_mine .u_msg {\n  color: #666666;\n}\n.app_body .chat-warp > textarea {\n  resize: none;\n  border-top: 1px solid #dedede;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 120px;\n  padding: 10px;\n}\n", ""]);
+	exports.push([module.id, ".role-set {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background: url(/images/bgc_1.jpg) center center no-repeat;\n  background-size: cover;\n}\n.role-set-content {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  text-align: center;\n  color: #FFFFFF;\n  left: 0;\n  right: 0;\n}\n.role-set-content p {\n  font-size: 48px;\n}\n.role-set-content > input {\n  background: none;\n  display: inline-block;\n  width: 550px;\n  margin: 0 auto;\n  padding-top: 15px;\n  border-bottom: 3px solid #fff;\n  line-height: normal;\n  font-weight: 500;\n  outline: 0;\n  overflow: hidden;\n  height: 80px;\n  font-size: 48px;\n  color: #FFFFFF;\n  text-align: center;\n}\n.app_body {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n.app_body .order-warp {\n  position: absolute;\n  left: 0;\n  right: 400px;\n  top: 0;\n  bottom: 0;\n}\n.app_body .order-warp .all_items > .title {\n  font-size: 16px;\n  color: #666666;\n  text-align: center;\n  line-height: 30px;\n  padding: 5px 10px;\n  margin-right: 220px;\n  border-bottom: 1px solid #dedede;\n  background-color: #f9f9f9;\n  position: relative;\n}\n.app_body .order-warp .all_items > .title > input {\n  height: 30px;\n  border: 1px solid #dedede;\n  border-radius: 4px;\n  position: absolute;\n  right: 10px;\n  top: 5px;\n  color: #666;\n  text-indent: 7px;\n  width: 150px;\n}\n.app_body .order-warp .all_items > ul {\n  position: absolute;\n  top: 41px;\n  left: 0;\n  right: 220px;\n  bottom: 0;\n  overflow: auto;\n}\n.app_body .order-warp .all_items > ul li {\n  padding: 5px 15px;\n  width: 168px;\n  float: left;\n  border: 1px solid #e9e9e9;\n  border-radius: 4px;\n  margin: 10px;\n  cursor: pointer;\n  position: relative;\n}\n.app_body .order-warp .all_items > ul li i {\n  display: none;\n  cursor: pointer;\n  font-size: 16px;\n  color: #797474;\n}\n.app_body .order-warp .all_items > ul li .show_icon {\n  display: inherit;\n}\n.app_body .order-warp .all_items > ul li .handle {\n  position: absolute;\n  top: 5px;\n}\n.app_body .order-warp .all_items > ul li .add {\n  right: 10px;\n}\n.app_body .order-warp .all_items > ul li .sub {\n  right: 40px;\n}\n.app_body .order-warp .all_items > ul li .num {\n  right: 30px;\n  top: 6px;\n}\n.app_body .order-warp .all_items > ul li:hover {\n  background-color: #f6f6f6;\n}\n.app_body .order-warp .all_items > ul li:hover i {\n  display: inherit;\n}\n.app_body .order-warp .all_items > ul li.selected {\n  border-color: #d5e8fc;\n  background-color: #eaf4fe;\n}\n.app_body .order-warp .has_selected {\n  width: 220px;\n  position: absolute;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  text-align: center;\n  border-left: 1px solid #dedede;\n}\n.app_body .order-warp .has_selected .title {\n  height: 30px;\n  line-height: 30px;\n  font-size: 16px;\n  background-color: #f9f9f9;\n  color: #666;\n  border-bottom: 1px solid #dedede;\n  padding: 5px 10px;\n}\n.app_body .order-warp .has_selected > ul {\n  position: absolute;\n  top: 41px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: auto;\n  padding: 10px;\n}\n.app_body .order-warp .has_selected > ul li {\n  padding: 5px 15px;\n  border: 1px solid #d1f2e1;\n  margin-bottom: 10px;\n  border-radius: 4px;\n  text-align: left;\n  position: relative;\n  background-color: #e8f9f0;\n}\n.app_body .order-warp .has_selected > ul li .total {\n  position: absolute;\n  right: 5px;\n  top: 3px;\n  height: 20px;\n  min-width: 20px;\n  background: #5cb85c;\n  color: #FFF;\n  border-radius: 50%;\n  line-height: 20px;\n  text-align: center;\n  font-size: 12px;\n}\n.app_body .order-warp .has_selected > ul li .mine {\n  position: absolute;\n  left: 180px;\n  color: #19BE72;\n  top: 6px;\n}\n.app_body .order-warp .has_selected > ul li i {\n  display: none;\n  cursor: pointer;\n  font-size: 16px;\n  color: #797474;\n  position: absolute;\n  right: 30px;\n  top: 5px;\n}\n.app_body .order-warp .has_selected > ul li:hover i {\n  display: inherit;\n}\n.app_body .chat-warp {\n  width: 400px;\n  float: right;\n  height: 100%;\n  position: relative;\n  border-left: 1px solid #dedede;\n}\n.app_body .chat-warp .user_list {\n  height: 100px;\n  position: absolute;\n  left: 0;\n  right: 0;\n  border-bottom: 1px solid #dedede;\n  padding: 10px;\n  overflow: auto;\n}\n.app_body .chat-warp .user_list > li {\n  display: inline-block;\n  float: left;\n  font-size: 14px;\n  color: #666666;\n  padding: 5px 10px;\n  border: 1px solid #999999;\n  border-radius: 4px;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n.app_body .chat-warp .user_list > li i {\n  margin-right: 4px;\n}\n.app_body .chat-warp .user_list > li .out {\n  cursor: pointer;\n}\n.app_body .chat-warp .user_list > li.is_mine {\n  background: #19BE72;\n  color: #ffffff;\n  border: 1px solid #19BE72;\n  padding-right: 5px;\n}\n.app_body .chat-warp .chat-msg-list {\n  position: absolute;\n  top: 121px;\n  bottom: 120px;\n  left: 0;\n  right: 0;\n  padding: 10px;\n  overflow: auto;\n}\n.app_body .chat-warp .chat-msg-list > li {\n  padding-bottom: 10px;\n}\n.app_body .chat-warp .chat-msg-list > li .u_name {\n  color: #19be6b;\n  font-size: 14px;\n}\n.app_body .chat-warp .chat-msg-list > li .u_msg {\n  margin-top: 5px;\n  font-size: 14px;\n  color: #999999;\n}\n.app_body .chat-warp .chat-msg-list > li.is_mine .u_name {\n  color: #ed3f14;\n}\n.app_body .chat-warp .chat-msg-list > li.is_mine .u_msg {\n  color: #666666;\n}\n.app_body .chat-warp > textarea {\n  resize: none;\n  border-top: 1px solid #dedede;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 120px;\n  padding: 10px;\n}\n", ""]);
 
 	// exports
 
@@ -12257,7 +12257,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".enjoy[_v-515a7a76] {\n  display: inline-block;\n  position: absolute;\n  right: 10px;\n  top: 12px;\n  color: #666;\n  cursor: pointer;\n}\n.enjoy[_v-515a7a76]:hover {\n  color: #999;\n}\n", ""]);
 
 	// exports
 
@@ -12310,7 +12310,9 @@
 	      inputMsg: '', //待发送消息
 	      all_items: [],
 	      selected_items: [],
-	      filter_str: ''
+	      filter_str: '',
+	      now_date: DateFormat.format(new Date()).substr(0, 10),
+	      user_list: []
 	    };
 	  },
 
@@ -12334,6 +12336,10 @@
 	      // 监听点餐系统消息
 	      this.SOCKET.on('orders', function (orders) {
 	        vm.dealOrderInfo(orders);
+	      });
+	      // 监听就餐人数消息
+	      this.SOCKET.on('users', function (users) {
+	        vm.dealUsersInfo(users);
 	      });
 	    },
 	    dealSysInfo: function dealSysInfo(sysMsg, users, user, type) {
@@ -12361,9 +12367,18 @@
 	        }
 	      });
 	      orders = orders.sort(function (pre, next) {
-	        return pre.count.total < next.count.total;
+	        if (pre.count.total < next.count.total) {
+	          return 1;
+	        } else if (pre.count.total > next.count.total) {
+	          return -1;
+	        } else {
+	          return 0;
+	        }
 	      });
 	      this.selected_items = orders;
+	    },
+	    dealUsersInfo: function dealUsersInfo(users) {
+	      this.user_list = users;
 	    },
 	    send: function send() {
 	      if (this.inputMsg.length !== 0) {
@@ -12376,6 +12391,12 @@
 	    },
 	    deleteOne: function deleteOne(item) {
 	      this.SOCKET.emit('deleteorder', (0, _stringify2.default)(item), (0, _stringify2.default)(this.user));
+	    },
+	    enjoy: function enjoy() {
+	      this.SOCKET.emit('enlist', (0, _stringify2.default)(this.user), 'in');
+	    },
+	    leave: function leave() {
+	      this.SOCKET.emit('enlist', (0, _stringify2.default)(this.user), 'out');
 	    },
 	    logout: function logout() {
 	      localStorage.clear();
@@ -12437,11 +12458,14 @@
 	//         </ul>
 	//       </div>
 	//       <div class="has_selected">
-	//         <p class="title">已点菜单</p>
+	//         <p class="title" style="color: #5cadff; position: relative"><span style="color: #999;font-size: 16px;">{{now_date}}</span>{{` ${user_list.length}人`}}
+	//           <i title="加入觅食" v-if="user_list.indexOf(user._id)===-1" @click="enjoy" class="enjoy fas fa-sign-in-alt"></i>
+	//           <i title="放弃觅食" v-else class="enjoy fas fa-sign-out-alt" @click="leave"></i>
+	//         </p>
 	//         <ul>
 	//           <li v-for="item in selected_items" :key="item.id">
 	//             {{item.name}}
-	//             <!-- <i @click="deleteOne(item)" v-if="item.count[user._id]" class="far fa-minus-circle"></i> -->
+	//             <i @click="chooseOne(item)" class="far fa-plus-circle"></i>
 	//             <!-- <span class="mine">{{item.count[user._id]}}</span> -->
 	//             <span class="total">{{item.count.total}}</span>
 	//           </li>
@@ -12467,7 +12491,17 @@
 	//   </div>
 	// </template>
 	// <style lang='less' scoped>
-	//
+	//   .enjoy {
+	//     display: inline-block;
+	//     position: absolute; 
+	//     right: 10px;
+	//     top: 12px; 
+	//     color: #666;
+	//     cursor: pointer;
+	//     &:hover {
+	//       color: #999;
+	//     }
+	//   }
 	// </style>
 	// <script>
 
@@ -12488,7 +12522,7 @@
 /* 27 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"app_body\" _v-515a7a76=\"\">\n  <div class=\"order-warp\" _v-515a7a76=\"\">\n    <div class=\"all_items\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">\n        全部菜单<span style=\"font-size:16px; margin-left: 10px; color: #5cb85c\" _v-515a7a76=\"\">{{`( ${count} / 5 )`}}</span>\n        <input type=\"text\" v-model=\"filter_str\" placeholder=\"输入关键字搜索\" _v-515a7a76=\"\">\n      </p>\n      <ul _v-515a7a76=\"\">\n        <li class=\"item\" v-for=\"item in show_list\" :key=\"item.id\" v-bind:class=\"{selected: item.num}\" _v-515a7a76=\"\">\n          {{item.name}}\n          <span style=\"color: #999\" _v-515a7a76=\"\">{{`（ ¥ ${item.price} ） `}}</span>\n\n          <i @click=\"chooseOne(item)\" v-bind:class=\"{show_icon: item.num}\" class=\"handle add far fa-plus-circle\" _v-515a7a76=\"\"></i>\n          <span class=\"handle num\" _v-515a7a76=\"\">{{item.num}}</span>\n          <i @click=\"deleteOne(item)\" v-if=\"item.num\" v-bind:class=\"{show_icon: item.num}\" class=\"handle sub far fa-minus-circle\" _v-515a7a76=\"\"></i>\n        </li>\n      </ul>\n    </div>\n    <div class=\"has_selected\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">已点菜单</p>\n      <ul _v-515a7a76=\"\">\n        <li v-for=\"item in selected_items\" :key=\"item.id\" _v-515a7a76=\"\">\n          {{item.name}}\n          <!-- <i @click=\"deleteOne(item)\" v-if=\"item.count[user._id]\" class=\"far fa-minus-circle\"></i> -->\n          <!-- <span class=\"mine\">{{item.count[user._id]}}</span> -->\n          <span class=\"total\" _v-515a7a76=\"\">{{item.count.total}}</span>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\" _v-515a7a76=\"\">\n    <ul class=\"user_list\" _v-515a7a76=\"\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id &amp;&amp; _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\" _v-515a7a76=\"\">\n        <i class=\"fas fa-user\" _v-515a7a76=\"\"></i>\n        {{_user.nickname}}\n        <i style=\"margin-left: 10px;\" @click=\"logout()\" v-if=\"_user._id == user._id &amp;&amp; _user.nickname == user.nickname\" class=\"fas fa-sign-out out\" _v-515a7a76=\"\"></i>\n      </li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\" _v-515a7a76=\"\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id &amp;&amp; msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\" _v-515a7a76=\"\">\n        <span class=\"u_name\" _v-515a7a76=\"\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\" _v-515a7a76=\"\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" placeholder=\"在这里输入点什么...\" id=\"inputMsg\" @keyup.enter=\"send()\" _v-515a7a76=\"\"></textarea>\n  </div>\n</div>\n";
+	module.exports = "\n<div class=\"app_body\" _v-515a7a76=\"\">\n  <div class=\"order-warp\" _v-515a7a76=\"\">\n    <div class=\"all_items\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">\n        全部菜单<span style=\"font-size:16px; margin-left: 10px; color: #5cb85c\" _v-515a7a76=\"\">{{`( ${count} / 5 )`}}</span>\n        <input type=\"text\" v-model=\"filter_str\" placeholder=\"输入关键字搜索\" _v-515a7a76=\"\">\n      </p>\n      <ul _v-515a7a76=\"\">\n        <li class=\"item\" v-for=\"item in show_list\" :key=\"item.id\" v-bind:class=\"{selected: item.num}\" _v-515a7a76=\"\">\n          {{item.name}}\n          <span style=\"color: #999\" _v-515a7a76=\"\">{{`（ ¥ ${item.price} ） `}}</span>\n\n          <i @click=\"chooseOne(item)\" v-bind:class=\"{show_icon: item.num}\" class=\"handle add far fa-plus-circle\" _v-515a7a76=\"\"></i>\n          <span class=\"handle num\" _v-515a7a76=\"\">{{item.num}}</span>\n          <i @click=\"deleteOne(item)\" v-if=\"item.num\" v-bind:class=\"{show_icon: item.num}\" class=\"handle sub far fa-minus-circle\" _v-515a7a76=\"\"></i>\n        </li>\n      </ul>\n    </div>\n    <div class=\"has_selected\" _v-515a7a76=\"\">\n      <p class=\"title\" style=\"color: #5cadff; position: relative\" _v-515a7a76=\"\"><span style=\"color: #999;font-size: 16px;\" _v-515a7a76=\"\">{{now_date}}</span>{{` ${user_list.length}人`}}\n        <i title=\"加入觅食\" v-if=\"user_list.indexOf(user._id)===-1\" @click=\"enjoy\" class=\"enjoy fas fa-sign-in-alt\" _v-515a7a76=\"\"></i>\n        <i title=\"放弃觅食\" v-else=\"\" class=\"enjoy fas fa-sign-out-alt\" @click=\"leave\" _v-515a7a76=\"\"></i>\n      </p>\n      <ul _v-515a7a76=\"\">\n        <li v-for=\"item in selected_items\" :key=\"item.id\" _v-515a7a76=\"\">\n          {{item.name}}\n          <i @click=\"chooseOne(item)\" class=\"far fa-plus-circle\" _v-515a7a76=\"\"></i>\n          <!-- <span class=\"mine\">{{item.count[user._id]}}</span> -->\n          <span class=\"total\" _v-515a7a76=\"\">{{item.count.total}}</span>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\" _v-515a7a76=\"\">\n    <ul class=\"user_list\" _v-515a7a76=\"\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id &amp;&amp; _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\" _v-515a7a76=\"\">\n        <i class=\"fas fa-user\" _v-515a7a76=\"\"></i>\n        {{_user.nickname}}\n        <i style=\"margin-left: 10px;\" @click=\"logout()\" v-if=\"_user._id == user._id &amp;&amp; _user.nickname == user.nickname\" class=\"fas fa-sign-out out\" _v-515a7a76=\"\"></i>\n      </li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\" _v-515a7a76=\"\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id &amp;&amp; msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\" _v-515a7a76=\"\">\n        <span class=\"u_name\" _v-515a7a76=\"\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\" _v-515a7a76=\"\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" placeholder=\"在这里输入点什么...\" id=\"inputMsg\" @keyup.enter=\"send()\" _v-515a7a76=\"\"></textarea>\n  </div>\n</div>\n";
 
 /***/ },
 /* 28 */

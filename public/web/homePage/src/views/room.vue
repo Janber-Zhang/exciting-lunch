@@ -18,11 +18,14 @@
         </ul>
       </div>
       <div class="has_selected">
-        <p class="title">已点菜单</p>
+        <p class="title" style="color: #5cadff; position: relative"><span style="color: #999;font-size: 16px;">{{now_date}}</span>{{` ${user_list.length}人`}}
+          <i title="加入觅食" v-if="user_list.indexOf(user._id)===-1" @click="enjoy" class="enjoy fas fa-sign-in-alt"></i>
+          <i title="放弃觅食" v-else class="enjoy fas fa-sign-out-alt" @click="leave"></i>
+        </p>
         <ul>
           <li v-for="item in selected_items" :key="item.id">
             {{item.name}}
-            <!-- <i @click="deleteOne(item)" v-if="item.count[user._id]" class="far fa-minus-circle"></i> -->
+            <i @click="chooseOne(item)" class="far fa-plus-circle"></i>
             <!-- <span class="mine">{{item.count[user._id]}}</span> -->
             <span class="total">{{item.count.total}}</span>
           </li>
@@ -48,7 +51,17 @@
   </div>
 </template>
 <style lang='less' scoped>
-  
+  .enjoy {
+    display: inline-block;
+    position: absolute; 
+    right: 10px;
+    top: 12px; 
+    color: #666;
+    cursor: pointer;
+    &:hover {
+      color: #999;
+    }
+  }
 </style>
 <script>
 import AllMenu from './../js/menu.js'
@@ -80,7 +93,9 @@ export default {
       inputMsg: '',    //待发送消息
       all_items: [],
       selected_items: [],
-      filter_str: ''
+      filter_str: '',
+      now_date: DateFormat.format(new Date()).substr(0,10),
+      user_list: [],
     }
   },
   methods:{
@@ -104,6 +119,10 @@ export default {
       this.SOCKET.on('orders', function (orders) {
         vm.dealOrderInfo(orders);
       });
+      // 监听就餐人数消息
+      this.SOCKET.on('users', function (users) {
+        vm.dealUsersInfo(users);
+      })
     },
     dealSysInfo: function(sysMsg, users, user, type) {
       this.users = users;
@@ -128,9 +147,18 @@ export default {
         }
       });
       orders = orders.sort(function(pre, next){
-        return pre.count.total < next.count.total
+        if(pre.count.total < next.count.total){
+          return 1
+        } else if(pre.count.total > next.count.total){
+          return -1
+        } else {
+          return 0
+        }
       })
       this.selected_items = orders;
+    },
+    dealUsersInfo: function(users) {
+      this.user_list = users;
     },
     send: function(){
       if (this.inputMsg.length !== 0) {
@@ -143,6 +171,12 @@ export default {
     },
     deleteOne: function(item) {
       this.SOCKET.emit('deleteorder', JSON.stringify(item), JSON.stringify(this.user));
+    },
+    enjoy: function() {
+      this.SOCKET.emit('enlist', JSON.stringify(this.user), 'in')
+    },
+    leave: function() {
+      this.SOCKET.emit('enlist', JSON.stringify(this.user), 'out')
     },
     logout: function(){
       localStorage.clear();
