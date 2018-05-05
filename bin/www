@@ -67,6 +67,7 @@ socketIO.on('connection', function (socket) {
     socketIO.to(roomID).emit('sys',user.nickname + '加入了房间', roomInfo[roomID], user, 'in');  
     // 用户点餐
     socketIO.to(roomID).emit('orders', selected_item)
+    socketIO.to(roomID).emit('users', users)
 
   });
 
