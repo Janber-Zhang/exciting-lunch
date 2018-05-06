@@ -168,9 +168,10 @@ socketIO.on('connection', function (socket) {
     schedule.scheduleJob('0 56 7 * * *', function(){
 
       console.log('保存当日订单')
+      var str = JSON.stringify(selected_item)
       util.query('order/index/saveorder', 'post', {
         date: +new Date(),
-        data: JSON.stringify(selected_item),
+        data: str,
         type: 'order'
       }, function(res) {
         if (res.result) {
