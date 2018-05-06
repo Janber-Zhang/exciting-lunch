@@ -165,7 +165,7 @@ socketIO.on('connection', function (socket) {
     socketIO.to(roomID).emit('users', users)
   })
   function scheduleCron(){
-    schedule.scheduleJob('20 59 7 * * *', function(){
+    schedule.scheduleJob('0 0 12 * * *', function(){
 
       console.log('保存当日订单')
       var str = JSON.stringify(selected_item)
