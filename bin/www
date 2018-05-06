@@ -11,7 +11,7 @@
  var configPort = require('../config/config.json').port;
 
  var schedule = require('node-schedule');
- var util = require('./libs/util.js');
+ var util = require('../libs/util.js');
 
 
 
