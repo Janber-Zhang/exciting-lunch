@@ -19,8 +19,8 @@
       </div>
       <div class="has_selected">
         <p class="title" style="color: #5cadff; position: relative"><span style="color: #999;font-size: 16px;">{{now_date}}</span>{{` ${user_list.length}人`}}
-          <i title="加入觅食" v-if="user_list.indexOf(user._id)===-1" @click="enjoy" class="enjoy fas fa-sign-in-alt"></i>
-          <i title="放弃觅食" v-else class="enjoy fas fa-sign-out-alt" @click="leave"></i>
+          <i title="加入觅食" v-if="user_list.indexOf(user._id)===-1" @click="enjoy" class="enjoy fas fa-user-plus"></i>
+          <i title="放弃觅食" v-else @click="leave" class="enjoy fas fa-user-times"></i>
         </p>
         <ul>
           <li v-for="item in selected_items" :key="item.id">
