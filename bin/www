@@ -189,6 +189,7 @@ socketIO.on('connection', function (socket) {
       console.log('凌晨定时清除');
       selected_item = [];
       users = [];
+      messages = [];
       socketIO.to(roomID).emit('orders', selected_item);
       socketIO.to(roomID).emit('users', users);
       
