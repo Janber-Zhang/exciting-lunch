@@ -11,6 +11,7 @@
  var configPort = require('../config/config.json').port;
 
  var schedule = require('node-schedule');
+ var util = require('./libs/util.js');
 
 
 
@@ -164,12 +165,25 @@ socketIO.on('connection', function (socket) {
     socketIO.to(roomID).emit('users', users)
   })
   function scheduleCron(){
-    schedule.scheduleJob('0 0 12 * * *', function(){
+    schedule.scheduleJob('0 50 7 * * *', function(){
+
+      console.log('保存当日订单')
+      util.query('order/index/saveorder', 'post', {
+        date: +new Date(),
+        data: JSON.stringify(selected_item),
+        type: 'order'
+      }, function(res) {
+        if (res.result) {
+          console.log('保存成功')
+        }
+      });
+
+      console.log('凌晨定时清除');
       selected_item = [];
       users = [];
       socketIO.to(roomID).emit('orders', selected_item);
-      socketIO.to(roomID).emit('users', users)
-      console.log('凌晨定时清除');
+      socketIO.to(roomID).emit('users', users);
+      
     }); 
   }
   scheduleCron();
