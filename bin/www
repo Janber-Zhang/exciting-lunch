@@ -41,6 +41,8 @@ var roomInfo = {};
 var selected_item = [];
 // 就餐人员
 var users = [];
+// 聊天记录
+var messages = [];
 
 socketIO.on('connection', function (socket) {
   var roomID = 'excited_room';   // 设置房间ID
@@ -69,6 +71,7 @@ socketIO.on('connection', function (socket) {
     // 用户点餐
     socketIO.to(roomID).emit('orders', selected_item)
     socketIO.to(roomID).emit('users', users)
+    socketIO.to(roomID).emit('messages', messages)
 
   });
 
@@ -92,6 +95,10 @@ socketIO.on('connection', function (socket) {
     // 验证如果用户不在房间内则不给发送
     if (roomInfo[roomID].indexOf(user) === -1) {  
       return false;
+    }
+    messages.push({user, msg});
+    if (messages.length>100) {
+      messages.shift();
     }
     socketIO.to(roomID).emit('msg', user, msg);
   });

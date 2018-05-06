@@ -122,7 +122,12 @@ export default {
       // 监听就餐人数消息
       this.SOCKET.on('users', function (users) {
         vm.dealUsersInfo(users);
-      })
+      });
+      // 监听就餐人数消息
+      this.SOCKET.on('messages', function (messages) {
+        vm.dealHistoryMsg(messages);
+      });
+
     },
     dealSysInfo: function(sysMsg, users, user, type) {
       this.users = users;
@@ -159,6 +164,9 @@ export default {
     },
     dealUsersInfo: function(users) {
       this.user_list = users;
+    },
+    dealHistoryMsg: function(msgArr) {
+      this.msgArr = msgArr;
     },
     send: function(){
       if (this.inputMsg.length !== 0) {

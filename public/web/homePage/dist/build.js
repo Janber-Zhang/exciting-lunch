@@ -12341,6 +12341,10 @@
 	      this.SOCKET.on('users', function (users) {
 	        vm.dealUsersInfo(users);
 	      });
+	      // 监听就餐人数消息
+	      this.SOCKET.on('messages', function (messages) {
+	        vm.dealHistoryMsg(messages);
+	      });
 	    },
 	    dealSysInfo: function dealSysInfo(sysMsg, users, user, type) {
 	      this.users = users;
@@ -12379,6 +12383,9 @@
 	    },
 	    dealUsersInfo: function dealUsersInfo(users) {
 	      this.user_list = users;
+	    },
+	    dealHistoryMsg: function dealHistoryMsg(msgArr) {
+	      this.msgArr = msgArr;
 	    },
 	    send: function send() {
 	      if (this.inputMsg.length !== 0) {
