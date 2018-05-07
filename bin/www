@@ -175,16 +175,19 @@ socketIO.on('connection', function (socket) {
     schedule.scheduleJob('0 0 12 * * *', function(){
 
       console.log('保存当日订单')
-      var str = JSON.stringify(selected_item)
-      util.query('order/index/saveorder', 'post', {
-        date: +new Date(),
-        data: str,
-        type: 'order'
-      }, function(res) {
-        if (res.result) {
-          console.log('保存成功')
-        }
-      });
+      if (selected_item && selected_item.length) {
+        var str = JSON.stringify(selected_item)
+        util.query('order/index/saveorder', 'post', {
+          date: +new Date(),
+          data: str,
+          type: 'order'
+        }, function(res) {
+          if (res.result) {
+            console.log('保存成功')
+          }
+        });
+      }
+      
 
       console.log('凌晨定时清除');
       selected_item = [];
