@@ -44,10 +44,7 @@ router.post('/queryData', (req, res, next) => {
     apiUrl = config[params.apiModule];
     delete params["apiModule"];
   }
-  if (!checkSession(serviceUrl,req.session)) {        //判断登录状态
-    res.send({errno: '1111', errmsg: 'need login'});
-    return
-  }
+  
   if (req.session.user) {
     params.current_user_id = req.session.user._id;
   }

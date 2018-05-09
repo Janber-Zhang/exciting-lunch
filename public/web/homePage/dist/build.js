@@ -11968,6 +11968,7 @@
 	// <script>
 	exports.default = {
 	  created: function created() {
+
 	    if (localStorage.user_obj) {
 	      this.have_name = true;
 	    }
@@ -12286,6 +12287,7 @@
 	  created: function created() {
 	    this.user = JSON.parse(localStorage.user_obj);
 	    this.all_items = _menu2.default;
+	    this.initHisData();
 	  },
 	  mounted: function mounted() {
 	    this.socketInit();
@@ -12408,6 +12410,41 @@
 	    logout: function logout() {
 	      localStorage.clear();
 	      location.reload();
+	    },
+	    initHisData: function initHisData() {
+	      util.ajaxQuery({
+	        apiModule: 'newAPI',
+	        serviceUrl: 'order/index/getall?type=order'
+	      }, function (res) {
+	        var user_map = {};
+	        var menu_map = {};
+	        var all_data = res.data.data;
+	        all_data.forEach(function (day) {
+	          var orders = JSON.parse(day.data);
+	          orders.forEach(function (order) {
+	            if (menu_map[order.id]) {
+	              menu_map[order.id].count += order.count.total;
+	            } else {
+	              menu_map[order.id] = {
+	                id: order.id,
+	                name: order.name,
+	                count: order.count.total
+	              };
+	            }
+	            for (var key in order.count) {
+	              if (key !== 'total') {
+	                if (user_map[key]) {
+	                  user_map[key] += order.count[key];
+	                } else {
+	                  user_map[key] = order.count[key];
+	                }
+	              }
+	            }
+	          });
+	        });
+	        console.log(user_map);
+	        console.log(menu_map);
+	      });
 	    }
 	  },
 	  components: {},
