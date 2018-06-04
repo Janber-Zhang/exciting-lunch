@@ -3,10 +3,10 @@ var util = {
 		$('#loading').show();
 		var promise_ =  axios.post('/query/queryData', param).then((res) => {
 			$('#loading').hide();
-			if (res.data.errno == 1111) {
-				location.href = '/login';
-				return
-			}
+			// if (res.data.errno == 1111) {
+			// 	location.href = '/login';
+			// 	return
+			// }
 			if (cb) {
 				cb(res.data)
 			}
