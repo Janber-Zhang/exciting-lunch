@@ -11650,7 +11650,7 @@
 	__vue_script__ = __webpack_require__(12)
 	if (Object.keys(__vue_script__).some(function (key) { return key !== "default" && key !== "__esModule" })) {
 	  console.warn("[vue-loader] src/views/main.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(28)
+	__vue_template__ = __webpack_require__(52)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -12195,11 +12195,11 @@
 
 	var __vue_script__, __vue_template__
 	var __vue_styles__ = {}
-	__webpack_require__(23)
+	__webpack_require__(55)
 	__vue_script__ = __webpack_require__(25)
 	if (Object.keys(__vue_script__).some(function (key) { return key !== "default" && key !== "__esModule" })) {
 	  console.warn("[vue-loader] src/views/room.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(27)
+	__vue_template__ = __webpack_require__(57)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -12224,46 +12224,8 @@
 	})()}
 
 /***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(24);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(11)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/_css-loader@0.23.1@css-loader/index.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/style-rewriter.js?id=_v-515a7a76&scoped=true!../../../../../node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/selector.js?type=style&index=0!./room.vue", function() {
-				var newContent = require("!!../../../../../node_modules/_css-loader@0.23.1@css-loader/index.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/style-rewriter.js?id=_v-515a7a76&scoped=true!../../../../../node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/selector.js?type=style&index=0!./room.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(6)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".enjoy[_v-515a7a76] {\n  display: inline-block;\n  position: absolute;\n  right: 10px;\n  top: 12px;\n  color: #666;\n  cursor: pointer;\n}\n.enjoy[_v-515a7a76]:hover {\n  color: #999;\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 23 */,
+/* 24 */,
 /* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -12277,17 +12239,105 @@
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
-	var _menu = __webpack_require__(26);
+	var _menu = __webpack_require__(45);
 
 	var _menu2 = _interopRequireDefault(_menu);
 
+	var _statistics = __webpack_require__(46);
+
+	var _statistics2 = _interopRequireDefault(_statistics);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	// <template>
+	//   <div class="app_body">
+	//     <div class="order-warp">
+	//       <div class="all_items">
+	//         <p class="title">
+	//           全部菜单<span style="font-size:16px; margin-left: 10px; color: #5cb85c">{{`( ${count} / 5 )`}}</span>
+	//           <input type="text" v-model="filter_str" placeholder="输入关键字搜索">
+	//           <span class="show_statistics" @click="show_statistics = true">统计信息</span>
+	//         </p>
+	//         <ul>
+	//           <li class="item" v-for="item in show_list" :key="item.id" v-bind:class="{selected: item.num}">
+	//             {{item.name}}
+	//             <span style="color: #999">{{`（ ¥ ${item.price} ） `}}</span>
+	//
+	//             <i @click="chooseOne(item)" v-bind:class="{show_icon: item.num}" class="handle add far fa-plus-circle"></i>
+	//             <span class="handle num" >{{item.num}}</span>
+	//             <i @click="deleteOne(item)" v-if="item.num" v-bind:class="{show_icon: item.num}" class="handle sub far fa-minus-circle"></i>
+	//           </li>
+	//         </ul>
+	//       </div>
+	//       <div class="has_selected">
+	//         <p class="title" style="color: #5cadff; position: relative"><span style="color: #999;font-size: 16px;">{{now_date}}</span>{{` ${user_list.length}人`}}
+	//           <i title="加入觅食" v-if="user_list.indexOf(user._id)===-1" @click="enjoy" class="enjoy fas fa-user-plus"></i>
+	//           <i title="放弃觅食" v-else @click="leave" class="enjoy fas fa-user-times"></i>
+	//         </p>
+	//         <ul>
+	//           <li v-for="item in selected_items" :key="item.id">
+	//             {{item.name}}
+	//             <i @click="chooseOne(item)" class="far fa-plus-circle"></i>
+	//             <!-- <span class="mine">{{item.count[user._id]}}</span> -->
+	//             <span class="total">{{item.count.total}}</span>
+	//           </li>
+	//         </ul>
+	//       </div>
+	//     </div>
+	//     <div class="chat-warp">
+	//       <ul class="user_list">
+	//         <li v-bind:class="{'is_mine': _user._id == user._id && _user.nickname == user.nickname}" v-for="_user in users" :key="_user._id">
+	//           <i class="fas fa-user"></i>
+	//           {{_user.nickname}}
+	//           <i style="margin-left: 10px;" @click="logout()" v-if="_user._id == user._id && _user.nickname == user.nickname" class="fas fa-sign-out out"></i>
+	//         </li>
+	//       </ul>
+	//       <ul class="chat-msg-list" id="msgBox">
+	//         <li class="msg_info" v-bind:class="{'is_mine': msg.user._id == user._id && msg.user.nickname == user.nickname}" v-for="(msg, index) in msgArr" :key="index">
+	//           <span class="u_name">{{msg.user.nickname}}:</span>
+	//           <span class="u_msg">{{msg.msg}}</span>
+	//         </li>
+	//       </ul>
+	//       <textarea name="msg" v-model="inputMsg" placeholder="在这里输入点什么..." id="inputMsg" @keyup.enter="send()"></textarea>
+	//     </div>
+	//     <statistics-data :data="his_data" v-if="show_statistics" @close="show_statistics = false"></statistics-data>
+	//   </div>
+	// </template>
+	// <style>
+	//   .enjoy {
+	//     display: inline-block;
+	//     position: absolute; 
+	//     right: 10px;
+	//     top: 12px; 
+	//     color: #666;
+	//     cursor: pointer;
+	//   }
+	//   .enjoy:hover {
+	//     color: #999;
+	//   }
+	//   .show_statistics {
+	//     float: left;
+	//     display: inline-block;
+	//     width: 100px;
+	//     height: 30px;
+	//     border-radius: 4px;
+	//     border: 1px solid #dedede;
+	//     cursor: pointer;
+	//     background-color: #5cadff;
+	//     color: #fff;
+	//     font-size: 14px;
+	//   }
+	// </style>
+	// <script>
 	exports.default = {
 	  created: function created() {
 	    this.user = JSON.parse(localStorage.user_obj);
 	    this.all_items = _menu2.default;
 	    this.initHisData();
+	  },
+
+	  components: {
+	    statisticsData: _statistics2.default
 	  },
 	  mounted: function mounted() {
 	    this.socketInit();
@@ -12305,6 +12355,8 @@
 	  },
 	  data: function data() {
 	    return {
+	      show_statistics: false,
+	      his_data: [],
 	      user: null,
 	      SOCKET: null, //保存socket对象
 	      users: [], //当前聊天室用户
@@ -12412,42 +12464,15 @@
 	      location.reload();
 	    },
 	    initHisData: function initHisData() {
+	      var vm = this;
 	      util.ajaxQuery({
 	        apiModule: 'newAPI',
 	        serviceUrl: 'order/index/getall?type=order'
 	      }, function (res) {
-	        var user_map = {};
-	        var menu_map = {};
-	        var all_data = res.data.data;
-	        all_data.forEach(function (day) {
-	          var orders = JSON.parse(day.data);
-	          orders.forEach(function (order) {
-	            if (menu_map[order.id]) {
-	              menu_map[order.id].count += order.count.total;
-	            } else {
-	              menu_map[order.id] = {
-	                id: order.id,
-	                name: order.name,
-	                count: order.count.total
-	              };
-	            }
-	            for (var key in order.count) {
-	              if (key !== 'total') {
-	                if (user_map[key]) {
-	                  user_map[key] += order.count[key];
-	                } else {
-	                  user_map[key] = order.count[key];
-	                }
-	              }
-	            }
-	          });
-	        });
-	        console.log(user_map);
-	        console.log(menu_map);
+	        vm.his_data = res.data.data;
 	      });
 	    }
 	  },
-	  components: {},
 	  computed: {
 	    show_list: function show_list() {
 	      var _this2 = this;
@@ -12482,75 +12507,272 @@
 	  }
 	};
 	// </script>
-	// <template>
-	//   <div class="app_body">
-	//     <div class="order-warp">
-	//       <div class="all_items">
-	//         <p class="title">
-	//           全部菜单<span style="font-size:16px; margin-left: 10px; color: #5cb85c">{{`( ${count} / 5 )`}}</span>
-	//           <input type="text" v-model="filter_str" placeholder="输入关键字搜索">
-	//         </p>
-	//         <ul>
-	//           <li class="item" v-for="item in show_list" :key="item.id" v-bind:class="{selected: item.num}">
-	//             {{item.name}}
-	//             <span style="color: #999">{{`（ ¥ ${item.price} ） `}}</span>
-	//
-	//             <i @click="chooseOne(item)" v-bind:class="{show_icon: item.num}" class="handle add far fa-plus-circle"></i>
-	//             <span class="handle num" >{{item.num}}</span>
-	//             <i @click="deleteOne(item)" v-if="item.num" v-bind:class="{show_icon: item.num}" class="handle sub far fa-minus-circle"></i>
-	//           </li>
-	//         </ul>
-	//       </div>
-	//       <div class="has_selected">
-	//         <p class="title" style="color: #5cadff; position: relative"><span style="color: #999;font-size: 16px;">{{now_date}}</span>{{` ${user_list.length}人`}}
-	//           <i title="加入觅食" v-if="user_list.indexOf(user._id)===-1" @click="enjoy" class="enjoy fas fa-user-plus"></i>
-	//           <i title="放弃觅食" v-else @click="leave" class="enjoy fas fa-user-times"></i>
-	//         </p>
-	//         <ul>
-	//           <li v-for="item in selected_items" :key="item.id">
-	//             {{item.name}}
-	//             <i @click="chooseOne(item)" class="far fa-plus-circle"></i>
-	//             <!-- <span class="mine">{{item.count[user._id]}}</span> -->
-	//             <span class="total">{{item.count.total}}</span>
-	//           </li>
-	//         </ul>
-	//       </div>
-	//     </div>
-	//     <div class="chat-warp">
-	//       <ul class="user_list">
-	//         <li v-bind:class="{'is_mine': _user._id == user._id && _user.nickname == user.nickname}" v-for="_user in users" :key="_user._id">
-	//           <i class="fas fa-user"></i>
-	//           {{_user.nickname}}
-	//           <i style="margin-left: 10px;" @click="logout()" v-if="_user._id == user._id && _user.nickname == user.nickname" class="fas fa-sign-out out"></i>
-	//         </li>
-	//       </ul>
-	//       <ul class="chat-msg-list" id="msgBox">
-	//         <li class="msg_info" v-bind:class="{'is_mine': msg.user._id == user._id && msg.user.nickname == user.nickname}" v-for="(msg, index) in msgArr" :key="index">
-	//           <span class="u_name">{{msg.user.nickname}}:</span>
-	//           <span class="u_msg">{{msg.msg}}</span>
-	//         </li>
-	//       </ul>
-	//       <textarea name="msg" v-model="inputMsg" placeholder="在这里输入点什么..." id="inputMsg" @keyup.enter="send()"></textarea>
-	//     </div>
-	//   </div>
-	// </template>
-	// <style lang='less' scoped>
-	//   .enjoy {
-	//     display: inline-block;
-	//     position: absolute; 
-	//     right: 10px;
-	//     top: 12px; 
-	//     color: #666;
-	//     cursor: pointer;
-	//     &:hover {
-	//       color: #999;
-	//     }
-	//   }
-	// </style>
-	// <script>
 
 /***/ },
-/* 26 */
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global = __webpack_require__(31);
+	var core = __webpack_require__(19);
+	var ctx = __webpack_require__(32);
+	var hide = __webpack_require__(34);
+	var has = __webpack_require__(44);
+	var PROTOTYPE = 'prototype';
+
+	var $export = function (type, name, source) {
+	  var IS_FORCED = type & $export.F;
+	  var IS_GLOBAL = type & $export.G;
+	  var IS_STATIC = type & $export.S;
+	  var IS_PROTO = type & $export.P;
+	  var IS_BIND = type & $export.B;
+	  var IS_WRAP = type & $export.W;
+	  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
+	  var expProto = exports[PROTOTYPE];
+	  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
+	  var key, own, out;
+	  if (IS_GLOBAL) source = name;
+	  for (key in source) {
+	    // contains in native
+	    own = !IS_FORCED && target && target[key] !== undefined;
+	    if (own && has(exports, key)) continue;
+	    // export native or passed
+	    out = own ? target[key] : source[key];
+	    // prevent global pollution for namespaces
+	    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+	    // bind timers to global for call from export context
+	    : IS_BIND && own ? ctx(out, global)
+	    // wrap global constructors for prevent change them in library
+	    : IS_WRAP && target[key] == out ? (function (C) {
+	      var F = function (a, b, c) {
+	        if (this instanceof C) {
+	          switch (arguments.length) {
+	            case 0: return new C();
+	            case 1: return new C(a);
+	            case 2: return new C(a, b);
+	          } return new C(a, b, c);
+	        } return C.apply(this, arguments);
+	      };
+	      F[PROTOTYPE] = C[PROTOTYPE];
+	      return F;
+	    // make static versions for prototype methods
+	    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+	    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+	    if (IS_PROTO) {
+	      (exports.virtual || (exports.virtual = {}))[key] = out;
+	      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+	      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
+	    }
+	  }
+	};
+	// type bitmap
+	$export.F = 1;   // forced
+	$export.G = 2;   // global
+	$export.S = 4;   // static
+	$export.P = 8;   // proto
+	$export.B = 16;  // bind
+	$export.W = 32;  // wrap
+	$export.U = 64;  // safe
+	$export.R = 128; // real proto method for `library`
+	module.exports = $export;
+
+
+/***/ },
+/* 31 */
+/***/ function(module, exports) {
+
+	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+	var global = module.exports = typeof window != 'undefined' && window.Math == Math
+	  ? window : typeof self != 'undefined' && self.Math == Math ? self
+	  // eslint-disable-next-line no-new-func
+	  : Function('return this')();
+	if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// optional / simple context binding
+	var aFunction = __webpack_require__(33);
+	module.exports = function (fn, that, length) {
+	  aFunction(fn);
+	  if (that === undefined) return fn;
+	  switch (length) {
+	    case 1: return function (a) {
+	      return fn.call(that, a);
+	    };
+	    case 2: return function (a, b) {
+	      return fn.call(that, a, b);
+	    };
+	    case 3: return function (a, b, c) {
+	      return fn.call(that, a, b, c);
+	    };
+	  }
+	  return function (/* ...args */) {
+	    return fn.apply(that, arguments);
+	  };
+	};
+
+
+/***/ },
+/* 33 */
+/***/ function(module, exports) {
+
+	module.exports = function (it) {
+	  if (typeof it != 'function') throw TypeError(it + ' is not a function!');
+	  return it;
+	};
+
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var dP = __webpack_require__(35);
+	var createDesc = __webpack_require__(43);
+	module.exports = __webpack_require__(39) ? function (object, key, value) {
+	  return dP.f(object, key, createDesc(1, value));
+	} : function (object, key, value) {
+	  object[key] = value;
+	  return object;
+	};
+
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var anObject = __webpack_require__(36);
+	var IE8_DOM_DEFINE = __webpack_require__(38);
+	var toPrimitive = __webpack_require__(42);
+	var dP = Object.defineProperty;
+
+	exports.f = __webpack_require__(39) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+	  anObject(O);
+	  P = toPrimitive(P, true);
+	  anObject(Attributes);
+	  if (IE8_DOM_DEFINE) try {
+	    return dP(O, P, Attributes);
+	  } catch (e) { /* empty */ }
+	  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+	  if ('value' in Attributes) O[P] = Attributes.value;
+	  return O;
+	};
+
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(37);
+	module.exports = function (it) {
+	  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+	  return it;
+	};
+
+
+/***/ },
+/* 37 */
+/***/ function(module, exports) {
+
+	module.exports = function (it) {
+	  return typeof it === 'object' ? it !== null : typeof it === 'function';
+	};
+
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = !__webpack_require__(39) && !__webpack_require__(40)(function () {
+	  return Object.defineProperty(__webpack_require__(41)('div'), 'a', { get: function () { return 7; } }).a != 7;
+	});
+
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Thank's IE8 for his funny defineProperty
+	module.exports = !__webpack_require__(40)(function () {
+	  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
+	});
+
+
+/***/ },
+/* 40 */
+/***/ function(module, exports) {
+
+	module.exports = function (exec) {
+	  try {
+	    return !!exec();
+	  } catch (e) {
+	    return true;
+	  }
+	};
+
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(37);
+	var document = __webpack_require__(31).document;
+	// typeof document.createElement is 'object' in old IE
+	var is = isObject(document) && isObject(document.createElement);
+	module.exports = function (it) {
+	  return is ? document.createElement(it) : {};
+	};
+
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.1 ToPrimitive(input [, PreferredType])
+	var isObject = __webpack_require__(37);
+	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+	// and the second argument - flag - preferred type is a string
+	module.exports = function (it, S) {
+	  if (!isObject(it)) return it;
+	  var fn, val;
+	  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+	  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+	  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+	  throw TypeError("Can't convert object to primitive value");
+	};
+
+
+/***/ },
+/* 43 */
+/***/ function(module, exports) {
+
+	module.exports = function (bitmap, value) {
+	  return {
+	    enumerable: !(bitmap & 1),
+	    configurable: !(bitmap & 2),
+	    writable: !(bitmap & 4),
+	    value: value
+	  };
+	};
+
+
+/***/ },
+/* 44 */
+/***/ function(module, exports) {
+
+	var hasOwnProperty = {}.hasOwnProperty;
+	module.exports = function (it, key) {
+	  return hasOwnProperty.call(it, key);
+	};
+
+
+/***/ },
+/* 45 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -12563,16 +12785,548 @@
 	exports.default = menu;
 
 /***/ },
-/* 27 */
-/***/ function(module, exports) {
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "\n<div class=\"app_body\" _v-515a7a76=\"\">\n  <div class=\"order-warp\" _v-515a7a76=\"\">\n    <div class=\"all_items\" _v-515a7a76=\"\">\n      <p class=\"title\" _v-515a7a76=\"\">\n        全部菜单<span style=\"font-size:16px; margin-left: 10px; color: #5cb85c\" _v-515a7a76=\"\">{{`( ${count} / 5 )`}}</span>\n        <input type=\"text\" v-model=\"filter_str\" placeholder=\"输入关键字搜索\" _v-515a7a76=\"\">\n      </p>\n      <ul _v-515a7a76=\"\">\n        <li class=\"item\" v-for=\"item in show_list\" :key=\"item.id\" v-bind:class=\"{selected: item.num}\" _v-515a7a76=\"\">\n          {{item.name}}\n          <span style=\"color: #999\" _v-515a7a76=\"\">{{`（ ¥ ${item.price} ） `}}</span>\n\n          <i @click=\"chooseOne(item)\" v-bind:class=\"{show_icon: item.num}\" class=\"handle add far fa-plus-circle\" _v-515a7a76=\"\"></i>\n          <span class=\"handle num\" _v-515a7a76=\"\">{{item.num}}</span>\n          <i @click=\"deleteOne(item)\" v-if=\"item.num\" v-bind:class=\"{show_icon: item.num}\" class=\"handle sub far fa-minus-circle\" _v-515a7a76=\"\"></i>\n        </li>\n      </ul>\n    </div>\n    <div class=\"has_selected\" _v-515a7a76=\"\">\n      <p class=\"title\" style=\"color: #5cadff; position: relative\" _v-515a7a76=\"\"><span style=\"color: #999;font-size: 16px;\" _v-515a7a76=\"\">{{now_date}}</span>{{` ${user_list.length}人`}}\n        <i title=\"加入觅食\" v-if=\"user_list.indexOf(user._id)===-1\" @click=\"enjoy\" class=\"enjoy fas fa-user-plus\" _v-515a7a76=\"\"></i>\n        <i title=\"放弃觅食\" v-else=\"\" @click=\"leave\" class=\"enjoy fas fa-user-times\" _v-515a7a76=\"\"></i>\n      </p>\n      <ul _v-515a7a76=\"\">\n        <li v-for=\"item in selected_items\" :key=\"item.id\" _v-515a7a76=\"\">\n          {{item.name}}\n          <i @click=\"chooseOne(item)\" class=\"far fa-plus-circle\" _v-515a7a76=\"\"></i>\n          <!-- <span class=\"mine\">{{item.count[user._id]}}</span> -->\n          <span class=\"total\" _v-515a7a76=\"\">{{item.count.total}}</span>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\" _v-515a7a76=\"\">\n    <ul class=\"user_list\" _v-515a7a76=\"\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id &amp;&amp; _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\" _v-515a7a76=\"\">\n        <i class=\"fas fa-user\" _v-515a7a76=\"\"></i>\n        {{_user.nickname}}\n        <i style=\"margin-left: 10px;\" @click=\"logout()\" v-if=\"_user._id == user._id &amp;&amp; _user.nickname == user.nickname\" class=\"fas fa-sign-out out\" _v-515a7a76=\"\"></i>\n      </li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\" _v-515a7a76=\"\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id &amp;&amp; msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\" _v-515a7a76=\"\">\n        <span class=\"u_name\" _v-515a7a76=\"\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\" _v-515a7a76=\"\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" placeholder=\"在这里输入点什么...\" id=\"inputMsg\" @keyup.enter=\"send()\" _v-515a7a76=\"\"></textarea>\n  </div>\n</div>\n";
+	var __vue_script__, __vue_template__
+	var __vue_styles__ = {}
+	__webpack_require__(53)
+	__vue_script__ = __webpack_require__(49)
+	if (Object.keys(__vue_script__).some(function (key) { return key !== "default" && key !== "__esModule" })) {
+	  console.warn("[vue-loader] src/views/statistics.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(50)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
+	if (__vue_template__) {
+	__vue_options__.template = __vue_template__
+	}
+	if (!__vue_options__.computed) __vue_options__.computed = {}
+	Object.keys(__vue_styles__).forEach(function (key) {
+	var module = __vue_styles__[key]
+	__vue_options__.computed[key] = function () { return module }
+	})
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "_v-5c5f987e/statistics.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
 
 /***/ },
-/* 28 */
+/* 47 */,
+/* 48 */,
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _keys = __webpack_require__(58);
+
+	var _keys2 = _interopRequireDefault(_keys);
+
+	var _menu = __webpack_require__(45);
+
+	var _menu2 = _interopRequireDefault(_menu);
+
+	var _user = __webpack_require__(20);
+
+	var _user2 = _interopRequireDefault(_user);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// <template>
+	//   <div class="statistics-warp">
+	//
+	//     <div id="menu_data"></div>
+	//
+	//     <button class="close-btn" @click="closePanel">关闭</button>
+	//
+	//   </div>
+	// </template>
+	// <style scoped>
+	//   .statistics-warp {
+	//     position: absolute;
+	//     left: 0;
+	//     right: 0;
+	//     top: 0;
+	//     bottom: 0;
+	//     background-color: #fff;
+	//   }
+	//   #menu_data {
+	//     position: absolute;
+	//     left: 20px;
+	//     top: 40px;
+	//     bottom: 0;
+	//     right: 20px;
+	//   }
+	//   .close-btn {
+	//     display: inline-block;
+	//     width: 100px;
+	//     height: 32px;
+	//     border-radius: 4px;
+	//     border: 1px solid #19BE72;
+	//     margin: 5px 10px 0;
+	//     background-color: #19BE72;
+	//     color: #ffffff;
+	//     font-size: 14px;
+	//   }
+	// </style>
+	// <script>
+	exports.default = {
+	  created: function created() {
+	    this.initData();
+	  },
+
+	  props: {
+	    data: { type: [Object, Array], required: true }
+	  },
+	  mounted: function mounted() {
+	    this.initMenuData();
+	  },
+	  data: function data() {
+	    return {
+	      menu_arr: [],
+	      user_arr: [],
+	      show_tips: false
+	    };
+	  },
+
+	  methods: {
+	    closePanel: function closePanel() {
+	      this.$emit('close');
+	    },
+	    initData: function initData() {
+	      var user_map = {};
+	      var menu_map = {};
+	      this.data.forEach(function (day) {
+	        var orders = JSON.parse(day.data);
+	        orders.forEach(function (order) {
+	          if (menu_map[order.id]) {
+	            menu_map[order.id].count += order.count.total;
+	          } else {
+	            menu_map[order.id] = {
+	              id: order.id,
+	              name: order.name,
+	              count: order.count.total
+	            };
+	          }
+	          for (var key in order.count) {
+	            if (key !== 'total') {
+	              if (user_map[key]) {
+	                user_map[key] += order.count[key];
+	              } else {
+	                user_map[key] = order.count[key];
+	              }
+	            }
+	          }
+	        });
+	      });
+	      var user_arr = [];
+	      var menu_arr = [];
+	      (0, _keys2.default)(user_map).forEach(function (key) {
+	        user_arr.push(user_map[key]);
+	      });
+	      (0, _keys2.default)(menu_map).forEach(function (key) {
+	        menu_arr.push({
+	          name: menu_map[key].name,
+	          y: menu_map[key].count
+	        });
+	      });
+	      this.user_arr = user_arr;
+	      menu_arr.sort(function (pre, next) {
+	        return next.y - pre.y;
+	      });
+	      window.a = menu_arr;
+	      this.menu_arr = menu_arr;
+	    },
+	    initMenuData: function initMenuData() {
+	      var data = this.menu_arr.map(function (item, index) {
+	        return {
+	          name: item.name,
+	          value: item.y,
+	          colorValue: index
+	        };
+	      });
+	      var chart = Highcharts.chart('menu_data', {
+	        colorAxis: {
+	          minColor: Highcharts.getOptions().colors[0],
+	          maxColor: '#FFFFFF'
+	        },
+	        series: [{
+	          type: "treemap",
+	          layoutAlgorithm: 'squarified',
+	          data: data
+	        }],
+	        title: {
+	          text: '热门菜品图'
+	        },
+	        tooltip: {
+	          pointFormat: '{point.name} : {point.value} (人/次)'
+	        }
+	      });
+	    }
+	  },
+	  computed: {}
+	  // </script>
+
+	};
+
+/***/ },
+/* 50 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"statistics-warp\" _v-5c5f987e=\"\">\n\n  <div id=\"menu_data\" _v-5c5f987e=\"\"></div>\n\n  <button class=\"close-btn\" @click=\"closePanel\" _v-5c5f987e=\"\">关闭</button>\n\n</div>\n";
+
+/***/ },
+/* 51 */,
+/* 52 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"main\" _v-5b2e6054=\"\">\n  <order-room v-if=\"have_name\" _v-5b2e6054=\"\"></order-room>\n  <enter-name v-else=\"\" @on-ok=\"have_name = true\" _v-5b2e6054=\"\"></enter-name>\n</div>\n";
+
+/***/ },
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(54);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(11)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../../../../node_modules/_css-loader@0.23.1@css-loader/index.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/style-rewriter.js?id=_v-5c5f987e&scoped=true!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/selector.js?type=style&index=0!./statistics.vue", function() {
+				var newContent = require("!!../../../../../node_modules/_css-loader@0.23.1@css-loader/index.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/style-rewriter.js?id=_v-5c5f987e&scoped=true!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/selector.js?type=style&index=0!./statistics.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 54 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(6)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n.statistics-warp[_v-5c5f987e] {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background-color: #fff;\n}\n#menu_data[_v-5c5f987e] {\n  position: absolute;\n  left: 20px;\n  top: 40px;\n  bottom: 0;\n  right: 20px;\n}\n.close-btn[_v-5c5f987e] {\n  display: inline-block;\n  width: 100px;\n  height: 32px;\n  border-radius: 4px;\n  border: 1px solid #19BE72;\n  margin: 5px 10px 0;\n  background-color: #19BE72;\n  color: #ffffff;\n  font-size: 14px;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(56);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(11)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../../../../node_modules/_css-loader@0.23.1@css-loader/index.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/style-rewriter.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/selector.js?type=style&index=0!./room.vue", function() {
+				var newContent = require("!!../../../../../node_modules/_css-loader@0.23.1@css-loader/index.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/style-rewriter.js!../../../../../node_modules/_vue-loader@8.7.1@vue-loader/lib/selector.js?type=style&index=0!./room.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(6)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.enjoy {\n  display: inline-block;\n  position: absolute; \n  right: 10px;\n  top: 12px; \n  color: #666;\n  cursor: pointer;\n}\n.enjoy:hover {\n  color: #999;\n}\n.show_statistics {\n  float: left;\n  display: inline-block;\n  width: 100px;\n  height: 30px;\n  border-radius: 4px;\n  border: 1px solid #dedede;\n  cursor: pointer;\n  background-color: #5cadff;\n  color: #fff;\n  font-size: 14px;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 57 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"app_body\">\n  <div class=\"order-warp\">\n    <div class=\"all_items\">\n      <p class=\"title\">\n        全部菜单<span style=\"font-size:16px; margin-left: 10px; color: #5cb85c\">{{`( ${count} / 5 )`}}</span>\n        <input type=\"text\" v-model=\"filter_str\" placeholder=\"输入关键字搜索\">\n        <span class=\"show_statistics\" @click=\"show_statistics = true\">统计信息</span>\n      </p>\n      <ul>\n        <li class=\"item\" v-for=\"item in show_list\" :key=\"item.id\" v-bind:class=\"{selected: item.num}\">\n          {{item.name}}\n          <span style=\"color: #999\">{{`（ ¥ ${item.price} ） `}}</span>\n\n          <i @click=\"chooseOne(item)\" v-bind:class=\"{show_icon: item.num}\" class=\"handle add far fa-plus-circle\"></i>\n          <span class=\"handle num\" >{{item.num}}</span>\n          <i @click=\"deleteOne(item)\" v-if=\"item.num\" v-bind:class=\"{show_icon: item.num}\" class=\"handle sub far fa-minus-circle\"></i>\n        </li>\n      </ul>\n    </div>\n    <div class=\"has_selected\">\n      <p class=\"title\" style=\"color: #5cadff; position: relative\"><span style=\"color: #999;font-size: 16px;\">{{now_date}}</span>{{` ${user_list.length}人`}}\n        <i title=\"加入觅食\" v-if=\"user_list.indexOf(user._id)===-1\" @click=\"enjoy\" class=\"enjoy fas fa-user-plus\"></i>\n        <i title=\"放弃觅食\" v-else @click=\"leave\" class=\"enjoy fas fa-user-times\"></i>\n      </p>\n      <ul>\n        <li v-for=\"item in selected_items\" :key=\"item.id\">\n          {{item.name}}\n          <i @click=\"chooseOne(item)\" class=\"far fa-plus-circle\"></i>\n          <!-- <span class=\"mine\">{{item.count[user._id]}}</span> -->\n          <span class=\"total\">{{item.count.total}}</span>\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"chat-warp\">\n    <ul class=\"user_list\">\n      <li v-bind:class=\"{'is_mine': _user._id == user._id && _user.nickname == user.nickname}\" v-for=\"_user in users\" :key=\"_user._id\">\n        <i class=\"fas fa-user\"></i>\n        {{_user.nickname}}\n        <i style=\"margin-left: 10px;\" @click=\"logout()\" v-if=\"_user._id == user._id && _user.nickname == user.nickname\" class=\"fas fa-sign-out out\"></i>\n      </li>\n    </ul>\n    <ul class=\"chat-msg-list\" id=\"msgBox\">\n      <li class=\"msg_info\" v-bind:class=\"{'is_mine': msg.user._id == user._id && msg.user.nickname == user.nickname}\" v-for=\"(msg, index) in msgArr\" :key=\"index\">\n        <span class=\"u_name\">{{msg.user.nickname}}:</span>\n        <span class=\"u_msg\">{{msg.msg}}</span>\n      </li>\n    </ul>\n    <textarea name=\"msg\" v-model=\"inputMsg\" placeholder=\"在这里输入点什么...\" id=\"inputMsg\" @keyup.enter=\"send()\"></textarea>\n  </div>\n  <statistics-data :data=\"his_data\" v-if=\"show_statistics\" @close=\"show_statistics = false\"></statistics-data>\n</div>\n";
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(59), __esModule: true };
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(60);
+	module.exports = __webpack_require__(19).Object.keys;
+
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 Object.keys(O)
+	var toObject = __webpack_require__(61);
+	var $keys = __webpack_require__(63);
+
+	__webpack_require__(76)('keys', function () {
+	  return function keys(it) {
+	    return $keys(toObject(it));
+	  };
+	});
+
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.13 ToObject(argument)
+	var defined = __webpack_require__(62);
+	module.exports = function (it) {
+	  return Object(defined(it));
+	};
+
+
+/***/ },
+/* 62 */
+/***/ function(module, exports) {
+
+	// 7.2.1 RequireObjectCoercible(argument)
+	module.exports = function (it) {
+	  if (it == undefined) throw TypeError("Can't call method on  " + it);
+	  return it;
+	};
+
+
+/***/ },
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+	var $keys = __webpack_require__(64);
+	var enumBugKeys = __webpack_require__(75);
+
+	module.exports = Object.keys || function keys(O) {
+	  return $keys(O, enumBugKeys);
+	};
+
+
+/***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var has = __webpack_require__(44);
+	var toIObject = __webpack_require__(65);
+	var arrayIndexOf = __webpack_require__(68)(false);
+	var IE_PROTO = __webpack_require__(72)('IE_PROTO');
+
+	module.exports = function (object, names) {
+	  var O = toIObject(object);
+	  var i = 0;
+	  var result = [];
+	  var key;
+	  for (key in O) if (key != IE_PROTO) has(O, key) && result.push(key);
+	  // Don't enum bug & hidden keys
+	  while (names.length > i) if (has(O, key = names[i++])) {
+	    ~arrayIndexOf(result, key) || result.push(key);
+	  }
+	  return result;
+	};
+
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// to indexed object, toObject with fallback for non-array-like ES3 strings
+	var IObject = __webpack_require__(66);
+	var defined = __webpack_require__(62);
+	module.exports = function (it) {
+	  return IObject(defined(it));
+	};
+
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// fallback for non-array-like ES3 and non-enumerable old V8 strings
+	var cof = __webpack_require__(67);
+	// eslint-disable-next-line no-prototype-builtins
+	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
+	  return cof(it) == 'String' ? it.split('') : Object(it);
+	};
+
+
+/***/ },
+/* 67 */
+/***/ function(module, exports) {
+
+	var toString = {}.toString;
+
+	module.exports = function (it) {
+	  return toString.call(it).slice(8, -1);
+	};
+
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// false -> Array#indexOf
+	// true  -> Array#includes
+	var toIObject = __webpack_require__(65);
+	var toLength = __webpack_require__(69);
+	var toAbsoluteIndex = __webpack_require__(71);
+	module.exports = function (IS_INCLUDES) {
+	  return function ($this, el, fromIndex) {
+	    var O = toIObject($this);
+	    var length = toLength(O.length);
+	    var index = toAbsoluteIndex(fromIndex, length);
+	    var value;
+	    // Array#includes uses SameValueZero equality algorithm
+	    // eslint-disable-next-line no-self-compare
+	    if (IS_INCLUDES && el != el) while (length > index) {
+	      value = O[index++];
+	      // eslint-disable-next-line no-self-compare
+	      if (value != value) return true;
+	    // Array#indexOf ignores holes, Array#includes - not
+	    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
+	      if (O[index] === el) return IS_INCLUDES || index || 0;
+	    } return !IS_INCLUDES && -1;
+	  };
+	};
+
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.15 ToLength
+	var toInteger = __webpack_require__(70);
+	var min = Math.min;
+	module.exports = function (it) {
+	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+	};
+
+
+/***/ },
+/* 70 */
+/***/ function(module, exports) {
+
+	// 7.1.4 ToInteger
+	var ceil = Math.ceil;
+	var floor = Math.floor;
+	module.exports = function (it) {
+	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+	};
+
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var toInteger = __webpack_require__(70);
+	var max = Math.max;
+	var min = Math.min;
+	module.exports = function (index, length) {
+	  index = toInteger(index);
+	  return index < 0 ? max(index + length, 0) : min(index, length);
+	};
+
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var shared = __webpack_require__(73)('keys');
+	var uid = __webpack_require__(74);
+	module.exports = function (key) {
+	  return shared[key] || (shared[key] = uid(key));
+	};
+
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global = __webpack_require__(31);
+	var SHARED = '__core-js_shared__';
+	var store = global[SHARED] || (global[SHARED] = {});
+	module.exports = function (key) {
+	  return store[key] || (store[key] = {});
+	};
+
+
+/***/ },
+/* 74 */
+/***/ function(module, exports) {
+
+	var id = 0;
+	var px = Math.random();
+	module.exports = function (key) {
+	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+	};
+
+
+/***/ },
+/* 75 */
+/***/ function(module, exports) {
+
+	// IE 8- don't enum bug keys
+	module.exports = (
+	  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+	).split(',');
+
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// most Object methods by ES6 should accept primitives
+	var $export = __webpack_require__(30);
+	var core = __webpack_require__(19);
+	var fails = __webpack_require__(40);
+	module.exports = function (KEY, exec) {
+	  var fn = (core.Object || {})[KEY] || Object[KEY];
+	  var exp = {};
+	  exp[KEY] = exec(fn);
+	  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
+	};
+
 
 /***/ }
 /******/ ]);

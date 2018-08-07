@@ -5,6 +5,7 @@
         <p class="title">
           全部菜单<span style="font-size:16px; margin-left: 10px; color: #5cb85c">{{`( ${count} / 5 )`}}</span>
           <input type="text" v-model="filter_str" placeholder="输入关键字搜索">
+          <span class="show_statistics" @click="show_statistics = true">统计信息</span>
         </p>
         <ul>
           <li class="item" v-for="item in show_list" :key="item.id" v-bind:class="{selected: item.num}">
@@ -48,9 +49,10 @@
       </ul>
       <textarea name="msg" v-model="inputMsg" placeholder="在这里输入点什么..." id="inputMsg" @keyup.enter="send()"></textarea>
     </div>
+    <statistics-data :data="his_data" v-if="show_statistics" @close="show_statistics = false"></statistics-data>
   </div>
 </template>
-<style lang='less' scoped>
+<style>
   .enjoy {
     display: inline-block;
     position: absolute; 
@@ -58,18 +60,34 @@
     top: 12px; 
     color: #666;
     cursor: pointer;
-    &:hover {
-      color: #999;
-    }
+  }
+  .enjoy:hover {
+    color: #999;
+  }
+  .show_statistics {
+    float: left;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #dedede;
+    cursor: pointer;
+    background-color: #5cadff;
+    color: #fff;
+    font-size: 14px;
   }
 </style>
 <script>
 import AllMenu from './../js/menu.js'
+import statisticsData from './statistics.vue'
 export default {
   created(){
     this.user = JSON.parse(localStorage.user_obj);
     this.all_items = AllMenu;
     this.initHisData();
+  },
+  components:{
+    statisticsData
   },
   mounted(){
     this.socketInit();
@@ -87,6 +105,8 @@ export default {
   },
   data(){
     return {
+      show_statistics: false,
+      his_data: [],
       user: null,
       SOCKET: null,    //保存socket对象
       users: [],       //当前聊天室用户
@@ -192,43 +212,14 @@ export default {
       location.reload();
     },
     initHisData() {
+      let vm = this
       util.ajaxQuery({
         apiModule: 'newAPI',
         serviceUrl: 'order/index/getall?type=order'
       }, function(res) {
-        var user_map = {};
-        var menu_map = {};
-        var all_data = res.data.data;
-        all_data.forEach(function(day){
-          var orders = JSON.parse(day.data);
-          orders.forEach(function(order){
-            if (menu_map[order.id]) {
-              menu_map[order.id].count += order.count.total;
-            } else {
-              menu_map[order.id] = {
-                id: order.id,
-                name: order.name,
-                count: order.count.total
-              };
-            }
-            for (var key in order.count) {
-              if (key !== 'total') {
-                if (user_map[key]) {
-                  user_map[key] += order.count[key]
-                } else {
-                  user_map[key] = order.count[key]
-                }
-              }
-            }
-          });
-        })
-        console.log(user_map);
-        console.log(menu_map);
+        vm.his_data = res.data.data;
       })
     }
-  },
-  components:{
-
   },
   computed:{
     show_list() {
