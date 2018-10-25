@@ -135,7 +135,8 @@ const menu = [
   {"name":"豆腐汤","price":"10","id":"0000133"},
   {"name":"酸菜粉丝汤","price":"10","id":"0000134"},
   {"name":"三色肉丝汤","price":"10","id":"0000135"},
-  {"name":"素汤","price":"4","id":"0000136"}
+  {"name":"素汤","price":"4","id":"0000136"},
+  {"name":"蛋饼","price":"4","id":"0000137"},
 ]
 
 export default menu
