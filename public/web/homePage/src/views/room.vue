@@ -5,7 +5,7 @@
         <p class="title">
           全部菜单<span style="font-size:16px; margin-left: 10px; color: #5cb85c">{{`( ${count} / 5 )`}}</span>
           <input type="text" v-model="filter_str" placeholder="输入关键字搜索">
-          <span class="show_statistics" @click="show_statistics = true">统计信息</span>
+          <!-- <span class="show_statistics" @click="show_statistics = true">统计信息</span> -->
         </p>
         <ul>
           <li class="item" v-for="item in show_list" :key="item.id" v-bind:class="{selected: item.num}">
@@ -49,7 +49,7 @@
       </ul>
       <textarea name="msg" v-model="inputMsg" placeholder="在这里输入点什么..." id="inputMsg" @keyup.enter="send()"></textarea>
     </div>
-    <statistics-data :data="his_data" v-if="show_statistics" @close="show_statistics = false"></statistics-data>
+    <!-- // <statistics-data :data="his_data" v-if="show_statistics" @close="show_statistics = false"></statistics-data> -->
   </div>
 </template>
 <style>
@@ -84,7 +84,7 @@ export default {
   created(){
     this.user = JSON.parse(localStorage.user_obj);
     this.all_items = AllMenu;
-    this.initHisData();
+    // this.initHisData();
   },
   components:{
     statisticsData
