@@ -31,6 +31,7 @@ const users = [
   {"nickname": "杨屹", "sex": 1, "_id": "ppc_000029"},
   {"nickname": "蒲杰", "sex": 1, "_id": "ppc_000030"},
   {"nickname": "董田田", "sex": 2, "_id": "ppc_000031"},
+  {"nickname": "王颖洁", "sex": 2, "_id": "ppc_000032"},
 ]
 
 export default users
